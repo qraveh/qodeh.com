@@ -1,0 +1,126 @@
+baseURL: "https://qodeh.com/"
+languageCode: en-us
+title: Raveh Neeman
+copyright: "© 2021-2026 Qodeh"
+theme: PaperMod
+
+paginate: 20
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+outputs:
+  # RSS feeds on the home page (everything) and per section (publications, projects).
+  # JSON on the home page powers the Fuse.js search index.
+  # Taxonomy/term/page do not get feeds -- those would just be noise.
+  home:    [HTML, JSON, RSS]
+  section: [HTML, RSS]
+  taxonomy: [HTML]
+  term:    [HTML]
+  page:    [HTML]
+
+params:
+  env: production
+  title: Raveh Neeman
+  description: "Personal site of Raveh Neeman, private quantum computing researcher."
+  keywords: [quantum computing, research]
+  author: Raveh Neeman
+  images: ["/logo.png"]   # site-wide default for og:image and twitter:image
+
+  defaultTheme: auto  # respects system dark/light preference
+
+  # Header branding: logo + name
+  label:
+    text: "Raveh Neeman"
+    icon: /logo.png
+    iconHeight: 44
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  hidemeta: false
+  hideSummary: false
+
+  homeInfoParams:
+    Title: "Raveh Neeman"
+    Content: >
+      Quantum computing researcher
+
+
+      Mission: build the most powerful quantum computer in the world
+
+
+      *The roadmap spans AI, Research, Quantum, Complexity, ASIC/FPGA, Management, Business*
+
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/ravehneeman/"
+    - name: github
+      url: "https://github.com/qraveh"
+    - name: email
+      url: "mailto:raveh@qodeh.com"
+    - name: rss
+      url: "/index.xml"
+
+  # Search
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+  assets:
+    disableHLJS: true  # use Hugo's built-in syntax highlighting
+    favicon: "/logo.png"
+    favicon16x16: "/logo.png"
+    favicon32x32: "/logo.png"
+    apple_touch_icon: "/logo.png"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
+    theme_color: "#0B43E4"             # brand cobalt (sampled from logo)
+    msapplication_TileColor: "#0B43E4"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true  # allows raw HTML in markdown (for math, embeds)
+  highlight:
+    noClasses: false
+
+menu:
+  main:
+    - identifier: lectures
+      name: Lectures
+      url: /lectures/
+      weight: 5
+    - identifier: publications
+      name: Publications
+      url: /publications/
+      weight: 10
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 20
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 30
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 40

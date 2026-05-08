@@ -1,0 +1,10 @@
+{{- /* Site-specific additions to PaperMod's <head>.
+
+  Add `noindex,nofollow` for functional pages that shouldn't be indexed
+  by search engines: the in-site search page and the 404 page. These
+  pages exist for site users but offer nothing to a search-engine crawler.
+*/ -}}
+
+{{- if or (eq .Layout "search") (eq .Kind "404") -}}
+<meta name="robots" content="noindex,nofollow">
+{{- end -}}

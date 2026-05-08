@@ -1,0 +1,31 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / editor temp files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.orig
+*.tmp
+
+# Python (for any helper scripts)
+__pycache__/
+*.pyc
+*.pyo
+
+# BMAD method outputs (private analysis artifacts, never published)
+_bmad-output/
+*.bmad
+PUBLIC_LAUNCH_PANEL_REPORT.md
+
+# Local helper artifacts
+build-local.ps1

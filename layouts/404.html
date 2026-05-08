@@ -1,0 +1,19 @@
+{{- define "main" }}
+<div class="post-single" style="max-width: 720px; margin: 4rem auto; padding: 0 1rem; text-align: center;">
+    <img src="{{ "logo.png" | absURL }}" alt="Qodeh" style="height: 80px; margin-bottom: 2rem;">
+    <h1 style="font-size: 3rem; margin: 0; color: var(--primary-brand, #0B43E4);">404</h1>
+    <h2 style="font-size: 1.4rem; font-weight: 400; margin: 1rem 0 2rem; color: var(--secondary);">
+        That page doesn&rsquo;t exist (yet).
+    </h2>
+    <p style="color: var(--secondary); margin-bottom: 2.5rem;">
+        Maybe a stale link, a typo, or a future post that hasn&rsquo;t shipped.
+        Here&rsquo;s where to go from here:
+    </p>
+    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+        <li><a href="{{ "" | absLangURL }}">Home</a></li>
+        <li><a href="{{ "publications/" | absLangURL }}">Publications</a></li>
+        <li><a href="{{ "projects/" | absLangURL }}">Projects</a></li>
+        <li><a href="{{ "about/" | absLangURL }}">About</a></li>
+    </ul>
+</div>
+{{- end }}{{/* end main */ -}}

@@ -1,0 +1,66 @@
+/* Custom branding for Raveh@Qodeh
+   Brand cobalt sampled from the logo waves: #0B43E4 */
+
+:root {
+    --primary-brand: #0B43E4;        /* deep cobalt — sampled from logo */
+    --primary-brand-soft: #7B9CFF;   /* lighter cobalt for dark mode (WCAG AA pass, ~6:1 contrast on #1D1E20) */
+}
+
+/* Light mode: links and accents in brand cobalt */
+:root,
+:root[data-theme="light"] {
+    --primary: rgb(20, 30, 50);      /* slightly cooler primary text */
+}
+
+a, .post-content a {
+    color: var(--primary-brand);
+}
+a:hover, .post-content a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+/* Dark mode: lighter, brighter cobalt for legibility */
+:root[data-theme="dark"] a,
+:root[data-theme="dark"] .post-content a {
+    color: var(--primary-brand-soft);
+}
+
+/* Pull-quote styling: heavier left border in brand color, slightly larger */
+.post-content blockquote {
+    border-left: 4px solid var(--primary-brand);
+    padding-left: 1em;
+    font-size: 1.05em;
+    color: inherit;
+}
+:root[data-theme="dark"] .post-content blockquote {
+    border-left-color: var(--primary-brand-soft);
+}
+
+/* Tag chips in brand color (subtle) */
+.post-tags li a {
+    border-color: var(--primary-brand);
+    color: var(--primary-brand);
+}
+:root[data-theme="dark"] .post-tags li a {
+    border-color: var(--primary-brand-soft);
+    color: var(--primary-brand-soft);
+}
+
+
+
+/* Breathing room around the logo + name */
+.logo a img {
+    margin-right: 18px;   /* space between logo icon and "Raveh Neeman" text */
+}
+
+.logo a {
+    padding: 6px 4px;     /* vertical + horizontal padding around the whole brand block */
+    gap: 12px;            /* extra gap working with PaperMod's flex layout */
+}
+
+/* Slightly larger header so the bigger logo doesn't feel cramped */
+.header {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
