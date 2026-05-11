@@ -1,7 +1,7 @@
 # qodeh.com
 
 Personal site of [Raveh Neeman](https://www.linkedin.com/in/ravehneeman/),
-independent quantum computing researcher.
+quantum computing researcher.
 
 Live at <https://qodeh.com>.
 
