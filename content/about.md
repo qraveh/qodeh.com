@@ -8,7 +8,7 @@ build:
 ShowBreadCrumbs: false
 ---
 
-I'm **Raveh Neeman**, a private quantum computing researcher based in Israel.
+I'm **Raveh Neeman**, a quantum computing researcher based in Israel.
 
 My mission is to build the most powerful quantum computer in the world.
 

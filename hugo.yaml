@@ -28,7 +28,7 @@ outputs:
 params:
   env: production
   title: Raveh Neeman
-  description: "Personal site of Raveh Neeman, private quantum computing researcher."
+  description: "Personal site of Raveh Neeman, quantum computing researcher."
   keywords: [quantum computing, research]
   author: Raveh Neeman
   images: ["/logo.png"]   # site-wide default for og:image and twitter:image
