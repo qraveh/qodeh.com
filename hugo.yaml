@@ -31,7 +31,11 @@ params:
   description: "Personal site of Raveh Neeman, quantum computing researcher."
   keywords: [quantum computing, research]
   author: Raveh Neeman
-  images: ["/logo.png"]   # site-wide default for og:image and twitter:image
+  # Social cards (Bluesky, Twitter, LinkedIn, …) force og:image to a wide
+  # 1.91:1 ratio. logo.png is near-square (2432x2504) so a center-crop
+  # chops off the "qodeh" wordmark. logo-social.png is a 1200x630
+  # composition: full logo centered on white, designed for sharing.
+  images: ["/logo-social.png"]
 
   defaultTheme: auto  # respects system dark/light preference
 
