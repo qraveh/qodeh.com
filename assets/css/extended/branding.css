@@ -59,8 +59,17 @@ a:hover, .post-content a:hover {
     gap: 12px;            /* extra gap working with PaperMod's flex layout */
 }
 
-/* Slightly larger header so the bigger logo doesn't feel cramped */
+/* Subtly lifted header band:
+   - Light mode: faint cobalt-tinted off-white (a hint of the brand color)
+   - Dark mode:  slightly lighter than body (lifts the nav above content)
+   The hairline border softens the seam without a hard rule. */
 .header {
     padding-top: 4px;
     padding-bottom: 4px;
+    background-color: #f1f4fb;                       /* light cobalt tint */
+    border-bottom: 1px solid rgba(11, 67, 228, 0.08); /* 8% cobalt hairline */
+}
+:root[data-theme="dark"] .header {
+    background-color: #26282c;                       /* +8 lift from body #1D1E20 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
