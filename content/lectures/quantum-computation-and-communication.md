@@ -23,7 +23,7 @@ ShowReadingTime: false   # "reading time" doesn't apply to a lecture page
 An introduction to quantum computation and quantum communication, delivered as
 an invited talk at **Ready** (formerly RACHIP), Petah-Tikva, on **22 October 2025**.
 
-90 minutes. About 50 in the room — including 11 contractors for RAD I had managed. Eyes widened. Information turned out to be physical. Impossible density of information when qubits entangle. The source of quantum power, visible. The shiver of reverence from standing at the frontmost edge of physics. The cosmos and eternity behind it all.
+90 minutes. About 50 in the room — including 9 contractors for RAD I had managed. Eyes widened. Information turned out to be physical. Impossible density of information when qubits entangle. The source of quantum power, visible. The shiver of reverence from standing at the frontmost edge of physics. The cosmos and eternity behind it all.
 
 The topic changes. Mighty quantum technologies, on display. Then another perspective is added. Quantum markets. Value chains. Money talks, convincingly, in the last slides. The quantum ecosystem comes into view — among my best pleasures from presenting.
 
