@@ -35,10 +35,12 @@ params:
 
   defaultTheme: auto  # respects system dark/light preference
 
-  # Header branding: logo + name
+  # Header branding: logo + name.
+  # Use the 256-px variant for the header (~45 KB) instead of the canonical
+  # 2432-px logo.png (~3 MB) — the header only ever displays at 32 px tall.
   label:
     text: "Raveh Neeman"
-    icon: /logo.png
+    icon: /logo-small.png
     iconHeight: 32
   ShowReadingTime: true
   ShowShareButtons: false
@@ -87,10 +89,12 @@ params:
 
   assets:
     disableHLJS: true  # use Hugo's built-in syntax highlighting
-    favicon: "/logo.png"
-    favicon16x16: "/logo.png"
-    favicon32x32: "/logo.png"
-    apple_touch_icon: "/logo.png"
+    # Favicons use the 256-px variant. Browsers downscale to 16/32/180 fine,
+    # and we avoid forcing every visitor to fetch the 3 MB canonical PNG.
+    favicon: "/logo-small.png"
+    favicon16x16: "/logo-small.png"
+    favicon32x32: "/logo-small.png"
+    apple_touch_icon: "/logo-small.png"
     safari_pinned_tab: "/safari-pinned-tab.svg"
     theme_color: "#0B43E4"             # brand cobalt (sampled from logo)
     msapplication_TileColor: "#0B43E4"
