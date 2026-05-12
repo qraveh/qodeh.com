@@ -39,7 +39,7 @@ params:
   label:
     text: "Raveh Neeman"
     icon: /logo.png
-    iconHeight: 44
+    iconHeight: 32
   ShowReadingTime: true
   ShowShareButtons: false
   ShowPostNavLinks: true

@@ -49,14 +49,15 @@ a:hover, .post-content a:hover {
 
 
 
-/* Breathing room around the logo + name */
+/* Breathing room around the logo + name
+   Spacing scales with the 32px logo (set in hugo.yaml: label.iconHeight). */
 .logo a img {
-    margin-right: 18px;   /* space between logo icon and "Raveh Neeman" text */
+    margin-right: 12px;   /* space between logo icon and "Raveh Neeman" text */
 }
 
 .logo a {
-    padding: 6px 4px;     /* vertical + horizontal padding around the whole brand block */
-    gap: 12px;            /* extra gap working with PaperMod's flex layout */
+    padding: 4px 4px;     /* vertical + horizontal padding around the whole brand block */
+    gap: 8px;             /* extra gap working with PaperMod's flex layout */
 }
 
 /* Subtly lifted header band:
