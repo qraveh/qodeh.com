@@ -9,7 +9,7 @@ showToc: true
 TocOpen: false
 ---
 
-*A Case Study in AI-Assisted Software Development*
+_A Case Study in AI-Assisted Software Development_
 
 > **TL;DR.** Selective mirroring with improved `.gitignore`-like syntax to any cloud via rclone (70+ platforms). Built solo in six weeks: production-grade, ~22K lines of Go, AI-only. A 10x acceleration compared with pre-AI software product development. The human role: Product Manager, Architect, V&V Manager, … — not coder. Asking the right questions is key.
 
@@ -129,7 +129,7 @@ The next product does not start from zero. The AI improve. I improve. A human wh
 
 Some milestones were even more compressed:
 
-![SelectiveMirror milestones — AI-assisted actual vs. human-only estimates](/milestones.png)
+![SelectiveMirror milestones — AI-assisted actual vs. human-only estimates](milestones.png)
 
 | Milestone | AI-assisted actual | Human estimate without AI |
 |---|---|---|
@@ -172,5 +172,5 @@ An experienced human who knows which questions to ask, when to distrust easy ans
 
 - **Repository:** [github.com/qraveh/SelectiveMirror](https://github.com/qraveh/SelectiveMirror)
 - **Releases:** [github.com/qraveh/SelectiveMirror/releases](https://github.com/qraveh/SelectiveMirror/releases/)
-- **v1.0.0 release notes:** [v1.0.0 tag](https://github.com/qraveh/SelectiveMirror/releases/tag/v1.0.0)
-- **MSI installer (Windows):** [SelectiveMirror.msi](https://github.com/qraveh/SelectiveMirror/releases/download/v1.0.0/SelectiveMirror.msi)
+- **Latest release notes:** [releases/latest](https://github.com/qraveh/SelectiveMirror/releases/latest)
+- **MSI installer (Windows):** [SelectiveMirror.msi](https://github.com/qraveh/SelectiveMirror/releases/latest/download/SelectiveMirror.msi)
