@@ -77,7 +77,7 @@ params:
     - name: github
       url: "https://github.com/qraveh"
     - name: email
-      url: "mailto:raveh@qodeh.com"
+      url: "mailto:raveh.neeman@qodeh.com"
     - name: rss
       url: "/index.xml"
 

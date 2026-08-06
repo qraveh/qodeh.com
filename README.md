@@ -30,4 +30,4 @@ Open <http://localhost:1313/>.
 
 ## Contact
 
-[raveh@qodeh.com](mailto:raveh@qodeh.com)
+[raveh.neeman@qodeh.com](mailto:raveh.neeman@qodeh.com)

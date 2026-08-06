@@ -20,7 +20,7 @@ This site collects my work — research, projects, and writing.
 
 ## Get in touch
 
-- **Email:** [raveh@qodeh.com](mailto:raveh@qodeh.com)
+- **Email:** [raveh.neeman@qodeh.com](mailto:raveh.neeman@qodeh.com)
 - **ORCID:** [0000-0001-7362-9529](https://orcid.org/0000-0001-7362-9529)
 - **GitHub:** [qraveh](https://github.com/qraveh)
 - **LinkedIn:** [ravehneeman](https://www.linkedin.com/in/ravehneeman/)
