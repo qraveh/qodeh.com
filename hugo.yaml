@@ -121,7 +121,7 @@ menu:
       url: /publications/
       weight: 10
     - identifier: monitor
-      name: Monitor
+      name: SFQ Monitor
       url: /sfq-monitor/
       weight: 15
     - identifier: projects
