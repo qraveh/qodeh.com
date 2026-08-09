@@ -8,3 +8,31 @@
 {{- if or (eq .Layout "search") (eq .Kind "404") -}}
 <meta name="robots" content="noindex,nofollow">
 {{- end -}}
+
+{{- /* Citation metadata for pages that publish a citable artifact (the SFQ
+  Technology Monitor landing page). Driven entirely by the page's `monitor:`
+  front-matter block, so the release ticket edits content, never templates.
+
+  Deliberately NOT emitted here: og:title / og:description / og:url — PaperMod's
+  templates/opengraph.html already emits those from .Title / .Summary /
+  .Permalink further down the head, and a second copy of an og property is a
+  crawler ambiguity, not a reinforcement.
+
+  A second application/ld+json block alongside PaperMod's is fine: schema.org
+  and Google both accept multiple graphs on one page.
+*/ -}}
+{{- with .Params.monitor }}
+<meta name="citation_title" content="{{ .citation_title }}">
+<meta name="citation_author" content="{{ .citation_author }}">
+<meta name="citation_publication_date" content="{{ .citation_publication_date }}">
+<meta name="citation_pdf_url" content="{{ .citation_pdf_url }}">
+<meta name="citation_doi" content="{{ .citation_doi }}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Report","name":"{{ .citation_title }}",
+ "author":{"@type":"Person","name":"Raveh Neeman","affiliation":"Qodeh"},
+ "publisher":{"@type":"Organization","name":"Qodeh"},
+ "version":"{{ .version }}","datePublished":"{{ .date_published_iso }}",
+ "license":"{{ .license }}",
+ "sameAs":["https://doi.org/{{ .version_doi }}"]}
+</script>
+{{- end -}}

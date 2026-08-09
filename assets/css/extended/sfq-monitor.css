@@ -1,0 +1,42 @@
+/* SFQ Technology Monitor landing page (/sfq-monitor/)
+
+   One component: the "current edition" card. It has to read as the page's
+   primary call to action — the download links — without competing with the
+   H1 above it. Uses the brand cobalt already defined in branding.css
+   (--primary-brand / --primary-brand-soft), so light and dark stay in sync
+   with the rest of the site. */
+
+.post-content .monitor-card {
+    border: 1px solid rgba(11, 67, 228, 0.22);   /* 22% cobalt hairline */
+    border-left: 4px solid var(--primary-brand); /* echoes the blockquote rule */
+    border-radius: 6px;
+    background-color: #f7f9ff;                   /* faintest cobalt tint */
+    padding: 1em 1.2em;
+    margin: 1.2em 0 1.6em;
+}
+
+:root[data-theme="dark"] .post-content .monitor-card {
+    border-color: rgba(123, 156, 255, 0.28);
+    border-left-color: var(--primary-brand-soft);
+    background-color: #26282c;                   /* same +8 lift as .header */
+}
+
+/* First/last child margins would otherwise push the card's padding around. */
+.post-content .monitor-card > :first-child {
+    margin-top: 0;
+}
+
+.post-content .monitor-card > :last-child {
+    margin-bottom: 0;
+}
+
+/* The download line is the point of the card — give it a little more air
+   than a normal paragraph and keep the two links from crowding the middot. */
+.post-content .monitor-card a {
+    text-decoration: none;
+}
+
+.post-content .monitor-card a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}

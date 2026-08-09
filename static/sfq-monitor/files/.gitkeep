@@ -1,0 +1,6 @@
+Published Monitor files land here. See "Published files" in the repo README.
+
+Rules: one immutable file per version, names are never reused, and there is
+deliberately no latest.pdf — https://qodeh.com/sfq-monitor/ is the only
+"latest" pointer. Keeping this directory in git is the point: the archive
+must survive even when it is empty.
