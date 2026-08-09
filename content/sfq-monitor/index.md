@@ -37,12 +37,10 @@ monitor:
 
 <div class="monitor-card">
 
-**SFQ Technology Monitor 2026 · v1.0** · published 9 August 2026
-
-Download: **[SFQ Technology Monitor 2026](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf)**
+**[SFQ Technology Monitor 2026](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf)** · v1.0 · published 9 August 2026
 
 <!-- v1.0 ships the presentation alone: the article rendering was not release-ready
-     at freeze. When it ships, restore on the line above:
+     at freeze. When it ships, add it to the line above:
        · **[Article rendering](/sfq-monitor/files/SFQ-Technology-Monitor-2026-report_v1.1.pdf)**
      and flip `citation_pdf_url` in the front matter back to it — Scholar indexes
      article-format PDFs reliably. -->
