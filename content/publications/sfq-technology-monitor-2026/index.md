@@ -25,7 +25,7 @@ SFQ sits on three critical paths at once.
 
 **It is very nearly the only route to computing at hundreds of gigahertz.** The outright digital speed record in any technology is an SFQ flip-flop, and Josephson-junction physics supports switching approaching a terahertz. Complex SFQ circuits run at tens of gigahertz today; no other digital family is credibly in that conversation.
 
-## Cite as
+**Cite as**
 
 > Neeman, R., "SFQ Technology Monitor 2026," v1.0, Qodeh, 2026. doi:[10.5281/zenodo.21860768](https://doi.org/10.5281/zenodo.21860768) (all versions: [10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)).
 
