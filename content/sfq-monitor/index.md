@@ -22,7 +22,9 @@ monitor:
   citation_title: "SFQ Technology Monitor 2026"
   citation_author: "Neeman, Raveh"
   citation_publication_date: "{{RELEASE_DATE_YYYY/MM/DD}}"
-  citation_pdf_url: "https://qodeh.com/sfq-monitor/files/SFQ-Technology-Monitor-2026-report_v1.0.pdf"
+  # v1.0 ships the deck alone, so this points at the deck. Flip it back to the
+  # article rendering at v1.1 — Scholar indexes article-format PDFs reliably, decks poorly.
+  citation_pdf_url: "https://qodeh.com/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf"
   citation_doi: "{{VERSION_DOI}}"
   version: "1.0"
   date_published_iso: "{{RELEASE_DATE_ISO}}"
@@ -38,9 +40,18 @@ monitor:
 
 **SFQ Technology Monitor 2026 · v1.0** · data cut-off {{CUTOFF_DATE}} · published {{RELEASE_DATE}}
 
-Download: **[Deck (PDF)](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf)** · **[Report (PDF)](/sfq-monitor/files/SFQ-Technology-Monitor-2026-report_v1.0.pdf)**
+Download: **[Deck (PDF)](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf)**
 
-*The deck is the Monitor's primary form; the report is the same edition-version rendered as an article. Same claims, same numbers, same tiers.*
+<!-- v1.0 ships the deck alone: the article rendering was not release-ready at freeze.
+     When it ships, restore on this line:
+       · **[Report (PDF)](/sfq-monitor/files/SFQ-Technology-Monitor-2026-report_v1.1.pdf)**
+     and restore the two-rendering sentence:
+       *The deck is the Monitor's primary form; the report is the same edition-version
+        rendered as an article. Same claims, same numbers, same tiers.*
+     Also flip `citation_pdf_url` in the front matter back to the report — Scholar
+     indexes article-format PDFs reliably and decks poorly. -->
+
+*The deck is the Monitor's primary form.*
 
 </div>
 
@@ -60,11 +71,13 @@ DOI resolves to the archival record (Zenodo); this page is the living pointer.
 
 ## Archive
 
-<!-- v1.0 only at launch; each later version adds one row: version · date · deck PDF · report PDF · its DOI. -->
+<!-- v1.0 only at launch; each later version adds one row: version · date · deck PDF · its DOI.
+     The Report column is omitted while no report has shipped — an empty column reads as a
+     missing file rather than a rendering that does not exist yet. Restore it at v1.1. -->
 
-| Version | Date | Deck | Report | DOI |
-|---|---|---|---|---|
-| v1.0 | {{RELEASE_DATE}} | [PDF](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf) | [PDF](/sfq-monitor/files/SFQ-Technology-Monitor-2026-report_v1.0.pdf) | {{VERSION_DOI}} |
+| Version | Date | Deck | DOI |
+|---|---|---|---|
+| v1.0 | {{RELEASE_DATE}} | [PDF](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf) | {{VERSION_DOI}} |
 
 ## Corrections
 
