@@ -17,11 +17,9 @@ Its limitations are equally plain, though: it is not dense — some 10³–10⁵
 
 ## Why this warrants its own monitor
 
-SFQ sits on four critical paths at once.
+SFQ sits on three critical paths at once.
 
-**It is an enabler and a multiplier for superconducting quantum computing.** Room-temperature control tops out at roughly a thousand lines into a cryostat; at 10⁵–10⁶ qubits, control electronics has to move inside it. SFQ is the only logic family that has demonstrated qubit-control waveform synthesis at millikelvin — up to 99.9% single-qubit fidelity in 2026 — and demonstrated digital demultiplexing that breaks one-line-per-qubit scaling. The Monitor's verdict is deliberately bounded: physics-favored, not physics-mandated.
-
-**It is the bridge from quantum computing to HPC.** Control and readout are where a quantum processor meets the classical machine around it. SFQ operates on the cold side of that boundary, which makes it a candidate substrate for the QC→HPC interface rather than an accessory bolted onto it.
+**It is an enabler and a multiplier for superconducting quantum computing.** Room-temperature control tops out at roughly a thousand lines into a cryostat; at 10⁵–10⁶ qubits, control electronics has to move inside it. SFQ is the only logic family that has demonstrated qubit-control waveform synthesis at millikelvin — up to 99.9% single-qubit fidelity in 2026 — and demonstrated digital demultiplexing that breaks one-line-per-qubit scaling. Control and readout are also where a quantum processor meets the classical machine around it, so the same cold-side position places SFQ directly on the interface between quantum computing and HPC. The Monitor's verdict is deliberately bounded: physics-favored, not physics-mandated.
 
 **It is one of the plausible futures of HPC itself.** Wall-plug energy per unit of work is now the binding constraint on large-scale computing, and SFQ's projected system figures sit well below current datacenter accelerators even after the cooling tax is paid. Those are vendor projections rather than silicon — which is precisely why this Monitor tiers them instead of asserting them.
 
