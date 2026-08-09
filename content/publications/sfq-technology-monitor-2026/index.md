@@ -13,7 +13,7 @@ _v1.0 · published 9 August 2026 · CC BY 4.0_
 
 Single-flux-quantum logic — RSFQ, ERSFQ/eSFQ, RQL, AQFP and DSFQ, treated as one field — is a genuine outlier. It holds the outright digital speed record, a 770 GHz toggle flip-flop that no technology has beaten, and it switches at roughly 2×10⁻¹⁹ J, about 1,000× below CMOS before the cryogenic cooling tax and a conditional 10–30× after it.
 
-It is also, stated plainly: not dense — some 10³–10⁵× behind CMOS; memory-poor, with a 4 K RAM record of 64 kb unbeaten since 2013; and tool-poor, with no commercial EDA flow.
+Its limitations are equally plain, though: it is not dense — some 10³–10⁵× behind CMOS; it is memory-poor, with a 4 K RAM record of 64 kb unbeaten since 2013; and it is tool-poor, with no commercial EDA flow.
 
 ## Why this warrants its own monitor
 
@@ -26,14 +26,6 @@ SFQ sits on four critical paths at once.
 **It is one of the plausible futures of HPC itself.** Wall-plug energy per unit of work is now the binding constraint on large-scale computing, and SFQ's projected system figures sit well below current datacenter accelerators even after the cooling tax is paid. Those are vendor projections rather than silicon — which is precisely why this Monitor tiers them instead of asserting them.
 
 **It is very nearly the only route to computing at hundreds of gigahertz.** The outright digital speed record in any technology is an SFQ flip-flop, and Josephson-junction physics supports switching approaching a terahertz. Complex SFQ circuits run at tens of gigahertz today; no other digital family is credibly in that conversation.
-
-## What the Monitor contains
-
-- a **subsystem scoreboard** where every load-bearing figure carries a confidence tier (T1 demonstrated-primary through T4 modeled-estimate) and a per-subsystem readiness level, never blended;
-- a **2026 ecosystem census** — seven disclosed fabrication lines, three disclosed SFQ-first venture companies totalling ~$110M, and the $1.8B IonQ–SkyWater acquisition that closed on 31 July 2026;
-- **market scenarios to 2035** — bear $0.5–1.5B, base $3–8B, bull $20–35B, scenario-weighted mean ≈$6.5B.
-
-Derived figures recompute from stated inputs in a companion workbook, claims that failed primary-source tracing were excluded, and corrections ship under a logged version number.
 
 ## Cite as
 
