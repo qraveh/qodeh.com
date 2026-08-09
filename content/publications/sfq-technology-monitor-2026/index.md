@@ -3,7 +3,6 @@ title: "SFQ Technology Monitor 2026"
 subtitle: "An annual, tiered assessment of superconducting single-flux-quantum digital electronics"
 date: 2026-08-09
 summary: "Superconducting SFQ logic holds the outright digital speed record and switches roughly 1,000× below CMOS. The 2026 Monitor consolidates the field's scattered technical, ecosystem and funding facts into one tiered picture — subsystem readiness, a fabrication and funding census, and market scenarios to 2035."
-tags: ["sfq", "superconducting-electronics", "quantum-computing", "cryogenic-computing", "technology-assessment"]
 author: "Raveh Neeman"
 showToc: false
 ---
