@@ -120,6 +120,10 @@ menu:
       name: Publications
       url: /publications/
       weight: 10
+    - identifier: monitor
+      name: Monitor
+      url: /sfq-monitor/
+      weight: 15
     - identifier: projects
       name: Projects
       url: /projects/

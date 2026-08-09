@@ -21,15 +21,15 @@ ShowPostNavLinks: false
 monitor:
   citation_title: "SFQ Technology Monitor 2026"
   citation_author: "Neeman, Raveh"
-  citation_publication_date: "{{RELEASE_DATE_YYYY/MM/DD}}"
+  citation_publication_date: "2026/08/09"
   # v1.0 ships the deck alone, so this points at the deck. Flip it back to the
   # article rendering at v1.1 — Scholar indexes article-format PDFs reliably, decks poorly.
   citation_pdf_url: "https://qodeh.com/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf"
-  citation_doi: "{{VERSION_DOI}}"
+  citation_doi: "10.5281/zenodo.21860768"
   version: "1.0"
-  date_published_iso: "{{RELEASE_DATE_ISO}}"
+  date_published_iso: "2026-08-09"
   license: "https://creativecommons.org/licenses/by/4.0/"
-  version_doi: "{{VERSION_DOI}}"
+  version_doi: "10.5281/zenodo.21860768"
 ---
 
 **SFQ Technology Monitor** — an annual, tiered, verification-first assessment of superconducting single-flux-quantum digital electronics: technology state, ecosystem, and market scenarios.
@@ -38,7 +38,7 @@ monitor:
 
 <div class="monitor-card">
 
-**SFQ Technology Monitor 2026 · v1.0** · data cut-off {{CUTOFF_DATE}} · published {{RELEASE_DATE}}
+**SFQ Technology Monitor 2026 · v1.0** · data cut-off 9 August 2026 · published 9 August 2026
 
 Download: **[Deck (PDF)](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf)**
 
@@ -57,7 +57,7 @@ Download: **[Deck (PDF)](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf
 
 ## Cite as
 
-> Neeman, R., "SFQ Technology Monitor 2026," v1.0, Qodeh, {{RELEASE_YEAR}}. doi:{{VERSION_DOI}} (all versions: {{CONCEPT_DOI}}).
+> Neeman, R., "SFQ Technology Monitor 2026," v1.0, Qodeh, 2026. doi:10.5281/zenodo.21860768 (all versions: 10.5281/zenodo.21860767).
 
 DOI resolves to the archival record (Zenodo); this page is the living pointer.
 
@@ -65,7 +65,7 @@ DOI resolves to the archival record (Zenodo); this page is the living pointer.
 
 | Date | Version | What changed |
 |---|---|---|
-| {{RELEASE_DATE}} | v1.0 | Initial public release. |
+| 9 August 2026 | v1.0 | Initial public release. |
 
 *Corrections policy as practiced: fixes of what was wrong as of the data cut-off ship as v1.x with a log line here; post-cut-off developments belong to the next edition, not to this one. Every published file is immutable; superseded versions remain in the archive below.*
 
@@ -77,7 +77,7 @@ DOI resolves to the archival record (Zenodo); this page is the living pointer.
 
 | Version | Date | Deck | DOI |
 |---|---|---|---|
-| v1.0 | {{RELEASE_DATE}} | [PDF](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf) | {{VERSION_DOI}} |
+| v1.0 | 9 August 2026 | [PDF](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf) | 10.5281/zenodo.21860768 |
 
 ## Corrections
 
