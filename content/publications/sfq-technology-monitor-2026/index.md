@@ -9,7 +9,7 @@ showToc: false
 
 _v1.0 · published 9 August 2026 · CC BY 4.0_
 
-**[Download the Monitor (PDF)](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf)** · **[SFQ Monitor home](/sfq-monitor/)** · doi:[10.5281/zenodo.21860768](https://doi.org/10.5281/zenodo.21860768)
+**[Download the Monitor (PDF)](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf)** · **[SFQ Monitor home](/sfq-monitor/)** · doi:[10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)
 
 Single-flux-quantum logic — RSFQ, ERSFQ/eSFQ, RQL, AQFP and DSFQ, treated as one field — is a genuine outlier. It holds the outright digital speed record, a 770 GHz toggle flip-flop that no technology has beaten, and it switches at roughly 2×10⁻¹⁹ J, about 1,000× below CMOS before the cryogenic cooling tax and a conditional 10–30× after it.
 
@@ -27,6 +27,6 @@ SFQ sits on three critical paths at once.
 
 **Cite as**
 
-> Neeman, R., "SFQ Technology Monitor 2026," v1.0, Qodeh, 2026. doi:[10.5281/zenodo.21860768](https://doi.org/10.5281/zenodo.21860768) (all versions: [10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)).
+> Neeman, R., "SFQ Technology Monitor 2026," v1.0, Qodeh, 2026. doi:[10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)
 
 Factual corrections are welcome: **[raveh.neeman@qodeh.com](mailto:raveh.neeman@qodeh.com?subject=SFQ%20Monitor%20correction)**

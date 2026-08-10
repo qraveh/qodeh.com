@@ -24,11 +24,15 @@ monitor:
   # v1.0 ships the presentation alone, so this points at it. Flip it back to the
   # article rendering at v1.1 — Scholar indexes article-format PDFs reliably.
   citation_pdf_url: "https://qodeh.com/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf"
-  citation_doi: "10.5281/zenodo.21860768"
+  # Concept DOI on purpose: it always resolves to the newest version, which is
+  # what this permanent landing page points at. Per-version DOIs live in the
+  # Archive table below, where identifying a specific version is the point.
+  citation_doi: "10.5281/zenodo.21860767"
   version: "1.0"
   date_published_iso: "2026-08-09"
   license: "https://creativecommons.org/licenses/by/4.0/"
-  version_doi: "10.5281/zenodo.21860768"
+  # feeds JSON-LD sameAs; concept DOI, matching citation_doi above
+  version_doi: "10.5281/zenodo.21860767"
 ---
 
 **SFQ Technology Monitor** — an annual, tiered assessment of superconducting single-flux-quantum digital electronics: technology state, ecosystem, and market scenarios.
@@ -49,9 +53,9 @@ monitor:
 
 ## Cite as
 
-> Neeman, R., "SFQ Technology Monitor 2026," v1.0, Qodeh, 2026. doi:[10.5281/zenodo.21860768](https://doi.org/10.5281/zenodo.21860768) (all versions: [10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)).
+> Neeman, R., "SFQ Technology Monitor 2026," v1.0, Qodeh, 2026. doi:[10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)
 
-DOI resolves to the archival record (Zenodo); this page is the living pointer.
+DOI resolves to the archival record (Zenodo) and always to its current version; this page is the living pointer.
 
 ## Version log
 
