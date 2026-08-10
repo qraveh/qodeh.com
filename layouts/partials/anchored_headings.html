@@ -1,0 +1,22 @@
+{{- /* Overrides PaperMod's partials/anchored_headings.html.
+
+  The theme rewrites every heading to carry <a hidden class="anchor">#</a>,
+  which .md-content h*:hover .anchor reveals on hover. Dropped here because on
+  this site it costs more than it gives:
+
+    - the pages are short, so there is no long document to deep-link into;
+    - the "#" lands in copied text and in the plain-text rendering of the page,
+      where it reads as stray punctuation after a heading;
+    - it is hover-only, so on touch devices it can never be used at all.
+
+  Passing .Content straight through removes the element rather than hiding it
+  with CSS, so copied text and the accessibility tree stay clean too.
+
+  Heading ids are NOT affected — Hugo's autoHeadingID still emits <h2 id="...">,
+  so #fragment links and any table of contents keep working.
+
+  Called from the theme's _default/single.html and _default/list.html as
+  `partial "anchored_headings.html" .Content`, so the context here is the
+  rendered content string.
+*/ -}}
+{{ . | safeHTML }}
