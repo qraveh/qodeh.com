@@ -112,6 +112,10 @@ markup:
 
 menu:
   main:
+    - identifier: monitor
+      name: SFQ Monitor
+      url: /sfq-monitor/
+      weight: 1
     - identifier: lectures
       name: Lectures
       url: /lectures/
@@ -120,10 +124,6 @@ menu:
       name: Publications
       url: /publications/
       weight: 10
-    - identifier: monitor
-      name: SFQ Monitor
-      url: /sfq-monitor/
-      weight: 15
     - identifier: projects
       name: Projects
       url: /projects/
