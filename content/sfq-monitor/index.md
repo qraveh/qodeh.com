@@ -65,13 +65,17 @@ DOI resolves to the archival record (Zenodo) and always to its current version; 
 
 ## Archive
 
-<!-- v1.0 only at launch; each later version adds one row: version · date · PDF · its DOI.
+<!-- v1.0 only at launch; each later version adds one row: version · date · PDF · DOI.
+     The DOI column carries the CONCEPT DOI, per the editor's decision to cite one DOI
+     everywhere. Note it will therefore repeat identically on every future row — when
+     v1.1 ships, dropping the column is the natural cleanup, since the per-version PDF
+     link already identifies each row.
      A second file column returns at v1.1 when the article rendering ships — an empty
      column reads as a missing file rather than one that does not exist yet. -->
 
 | Version | Date | PDF | DOI |
 |---|---|---|---|
-| v1.0 | 9 August 2026 | [Download](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf) | [10.5281/zenodo.21860768](https://doi.org/10.5281/zenodo.21860768) |
+| v1.0 | 9 August 2026 | [Download](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf) | [10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767) |
 
 ## Corrections
 
