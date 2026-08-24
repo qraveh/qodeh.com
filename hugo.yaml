@@ -31,6 +31,13 @@ params:
   description: "Personal site of Raveh Neeman, quantum computing researcher."
   keywords: [quantum computing, research]
   author: Raveh Neeman
+
+  # Search-engine ownership verification. Paste the token the console gives you
+  # (Google: "HTML tag" method; Bing: "Meta tag" method) and redeploy — the tag
+  # is emitted on the home page only, which is where both engines look for it.
+  # Empty means nothing is emitted, so an unverified site stays clean.
+  googleSiteVerification: ""
+  bingSiteVerification: ""
   # Social cards (Bluesky, Twitter, LinkedIn, …) force og:image to a wide
   # 1.91:1 ratio. logo.png is near-square (2432x2504) so a center-crop
   # chops off the "qodeh" wordmark. logo-social.png is a 1200x630

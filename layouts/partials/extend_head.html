@@ -1,3 +1,21 @@
+{{- /* Search-engine ownership verification.
+
+  Emitted on the home page only — both Google Search Console ("HTML tag"
+  method) and Bing Webmaster Tools ("Meta tag") look for their tag there.
+  Values live in hugo.yaml params; empty means no tag at all, so the markup
+  stays clean until a property is actually being verified. Once verification
+  succeeds the tag must STAY: both engines re-check it periodically and will
+  drop the property if it disappears.
+*/ -}}
+{{- if .IsHome }}
+{{- with site.Params.googleSiteVerification }}
+<meta name="google-site-verification" content="{{ . }}">
+{{- end }}
+{{- with site.Params.bingSiteVerification }}
+<meta name="msvalidate.01" content="{{ . }}">
+{{- end }}
+{{- end }}
+
 {{- /* Site-specific additions to PaperMod's <head>.
 
   Add `noindex,nofollow` for functional pages that shouldn't be indexed
