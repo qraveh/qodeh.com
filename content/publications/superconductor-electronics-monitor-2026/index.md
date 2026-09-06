@@ -5,6 +5,9 @@ date: 2026-09-06
 summary: "Superconductor electronics holds the outright digital speed record and switches roughly 1,000× below CMOS. The 2026 Monitor consolidates the field's scattered technical, ecosystem and funding facts into one tiered picture — a family taxonomy, subsystem readiness, a fab × technology matrix with fourteen fab profiles, and market scenarios to 2035."
 author: "Raveh Neeman"
 showToc: false
+# The slug moved with the v1.1 rename. Hugo emits a redirect stub at the old
+# path, which was live from 9 Aug 2026 and is indexed by Google and Bing.
+aliases: ["/publications/sfq-technology-monitor-2026/"]
 ---
 
 _v1.1 · published 6 September 2026 · supersedes v1.0 (9 August 2026) · CC BY 4.0_

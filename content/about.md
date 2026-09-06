@@ -18,7 +18,7 @@ This site collects my work — research, projects, and writing.
 
 ## Portfolio
 
-[**SFQ Technology Monitor 2026**](/publications/sfq-technology-monitor-2026/) — an annual monitor of SFQ technology: an extremely fast, extremely low-power, though not particularly dense, competitor to CMOS, and a major enabler of superconducting quantum computing.
+[**Superconductor Electronics Monitor 2026**](/publications/superconductor-electronics-monitor-2026/) — an annual, tiered assessment of superconductor electronics: it holds the outright digital speed record and switches roughly 1,000× below CMOS, though it is neither dense nor memory-rich. An enabler of superconducting quantum computing, and one of the plausible futures of HPC.
 
 [**SelectiveMirror**](/projects/selective-mirror/) — a Windows-first file-mirror service in ~22,000 lines of Go, shipped to v1.0.0 in six weeks. I wrote zero lines of code; AI did the implementation under my direction. The [case study](/publications/shipped-go-without-knowing-go/) is the most thorough record of what that means in practice.
 
