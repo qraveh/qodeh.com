@@ -120,7 +120,9 @@ markup:
 menu:
   main:
     - identifier: monitor
-      name: SFQ Monitor
+      # Label follows the publication's name; the URL does not — /sfq-monitor/ is
+      # printed on both editions' colophons and in the v1.0 Zenodo record.
+      name: SCE Monitor
       url: /sfq-monitor/
       weight: 1
     - identifier: lectures
