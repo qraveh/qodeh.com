@@ -1,12 +1,13 @@
 ---
-title: "SFQ Technology Monitor 2026"
+title: "Superconductor Electronics Monitor 2026"
 # `summary` (not `description`) on purpose: PaperMod prints .Description as a
 # visible sub-title under the H1, which would duplicate the tagline in the body.
 # With no .Description set, opengraph.html falls back to .Summary, so this text
 # is what ships as <meta name="description"> and <meta property="og:description">.
-summary: "An annual, tiered assessment of superconducting SFQ digital electronics — technology, ecosystem, and market scenarios to 2035."
-date: 2026-08-09
-url: "/sfq-monitor/"          # canonical, never changes across editions
+summary: "An annual, tiered assessment of superconductor electronics — technology state, ecosystem, and market scenarios to 2035."
+date: 2026-09-06
+url: "/sfq-monitor/"          # canonical, never changes across editions — printed on both
+                              # released colophons and in the v1.0 Zenodo record; must not move
 aliases: ["/monitor/"]        # optional short alias (publishing decisions)
 layout: "single"
 author: "Raveh Neeman"
@@ -15,67 +16,66 @@ ShowBreadCrumbs: false
 ShowPostNavLinks: false
 
 # Google Scholar / schema.org metadata, rendered into <head> by
-# layouts/partials/extend_head.html. Filled at release; `grep -r "{{"
-# content/sfq-monitor/` finds anything still unfilled.
+# layouts/partials/extend_head.html.
 monitor:
-  citation_title: "SFQ Technology Monitor 2026"
+  citation_title: "Superconductor Electronics Monitor 2026"
   citation_author: "Neeman, Raveh"
-  citation_publication_date: "2026/08/09"
-  # v1.0 ships the presentation alone, so this points at it. Flip it back to the
-  # article rendering at v1.1 — Scholar indexes article-format PDFs reliably.
-  citation_pdf_url: "https://qodeh.com/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf"
-  # Concept DOI on purpose: it always resolves to the newest version, which is
-  # what this permanent landing page points at. Per-version DOIs live in the
-  # Archive table below, where identifying a specific version is the point.
+  citation_publication_date: "2026/09/06"
+  citation_pdf_url: "https://qodeh.com/sfq-monitor/files/Superconductor-Electronics-Monitor-2026_v1.1.pdf"
+  # Concept DOI on purpose: it always resolves to the newest edition, which is
+  # what this permanent landing page points at. Per-edition DOIs live in the
+  # Archive table below, where identifying a specific edition is the point.
   citation_doi: "10.5281/zenodo.21860767"
-  version: "1.0"
-  date_published_iso: "2026-08-09"
+  version: "1.1"
+  date_published_iso: "2026-09-06"
   license: "https://creativecommons.org/licenses/by/4.0/"
   # feeds JSON-LD sameAs; concept DOI, matching citation_doi above
   version_doi: "10.5281/zenodo.21860767"
 ---
 
-**SFQ Technology Monitor** — an annual, tiered assessment of superconducting single-flux-quantum digital electronics: technology state, ecosystem, and market scenarios.
+**Superconductor Electronics Monitor** — an annual, tiered assessment of superconductor electronics: technology state, ecosystem, and market scenarios.
+
+*Formerly the SFQ Technology Monitor 2026 (v1.0); SFQ is the field's largest branch.*
 
 ## Current edition
 
 <div class="monitor-card">
 
-**[SFQ Technology Monitor 2026](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf)** · v1.0 · published 9 August 2026
+**[Superconductor Electronics Monitor 2026](/sfq-monitor/files/Superconductor-Electronics-Monitor-2026_v1.1.pdf)** · v1.1 · data cut-off 6 September 2026 · published 6 September 2026
 
-<!-- v1.0 ships the presentation alone: the article rendering was not release-ready
-     at freeze. When it ships, add it to the line above:
-       · **[Article rendering](/sfq-monitor/files/SFQ-Technology-Monitor-2026-report_v1.1.pdf)**
-     and flip `citation_pdf_url` in the front matter back to it — Scholar indexes
-     article-format PDFs reliably. -->
+Download: **[PDF](/sfq-monitor/files/Superconductor-Electronics-Monitor-2026_v1.1.pdf)** (33 pages, bookmarked) · **[PPTX](/sfq-monitor/files/Superconductor-Electronics-Monitor-2026_v1.1.pptx)**
+
+*This edition adds the family taxonomy, a density page, a fab × technology matrix and fourteen fab profiles. The fab rows link through to the profiles, so the PDF is worth opening in a viewer that shows the outline.*
 
 </div>
 
 ## Cite as
 
-> Neeman, R., "SFQ Technology Monitor 2026," v1.0, Qodeh, 2026. doi:[10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)
+> Neeman, R., "Superconductor Electronics Monitor 2026," v1.1, Qodeh, 2026 · qodeh.com/sfq-monitor · doi:[10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)
 
-DOI resolves to the archival record (Zenodo) and always to its current version; this page is the living pointer.
+The all-versions DOI always resolves to the current edition; to pin this edition cite [10.5281/zenodo.22537315](https://doi.org/10.5281/zenodo.22537315).
 
 ## Version log
 
 | Date | Version | What changed |
 |---|---|---|
-| 9 August 2026 | v1.0 | Initial public release. |
+| 6 September 2026 | v1.1 | Renamed to Superconductor Electronics Monitor. Adds the family taxonomy, density, fab matrix and fourteen fab profiles. Corrects eight claims of v1.0. |
+| 9 August 2026 | v1.0 | Initial public release, as the SFQ Technology Monitor 2026. |
 
 ## Archive
 
-<!-- v1.0 only at launch; each later version adds one row: version · date · PDF · DOI.
-     The DOI column carries the CONCEPT DOI, per the editor's decision to cite one DOI
-     everywhere. Note it will therefore repeat identically on every future row — when
-     v1.1 ships, dropping the column is the natural cleanup, since the per-version PDF
-     link already identifies each row.
-     A second file column returns at v1.1 when the article rendering ships — an empty
-     column reads as a missing file rather than one that does not exist yet. -->
+<!-- One row per edition. No DOI column: the citation carries the all-versions DOI
+     (editor's ruling), which would repeat identically on every row and identify
+     nothing. Per-edition identity lives in the row's own link — the current edition
+     by its files here, superseded editions by their Zenodo record, which is the one
+     canonical copy of a retired edition. Do not host superseded files on the site. -->
 
-| Version | Date | PDF | DOI |
+| Edition | Date | Cut-off | Files |
 |---|---|---|---|
-| v1.0 | 9 August 2026 | [Download](/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf) | [10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767) |
+| **v1.1** (current) | 6 September 2026 | 6 September 2026 | [PDF](/sfq-monitor/files/Superconductor-Electronics-Monitor-2026_v1.1.pdf) · [PPTX](/sfq-monitor/files/Superconductor-Electronics-Monitor-2026_v1.1.pptx) |
+| v1.0 | 9 August 2026 | 9 August 2026 | [on Zenodo](https://doi.org/10.5281/zenodo.21860768) |
+
+v1.1 corrects eight claims of v1.0 and lists them on its page 32.
 
 ## Corrections
 
