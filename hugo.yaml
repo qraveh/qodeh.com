@@ -119,6 +119,10 @@ markup:
 
 menu:
   main:
+    - identifier: qtmap
+      name: QT Map *beta
+      url: /publications/quantum-technology-map/
+      weight: 2
     - identifier: monitor
       # Label follows the publication's name; the URL does not — /sfq-monitor/ is
       # printed on both editions' colophons and in the v1.0 Zenodo record.

@@ -1,0 +1,6 @@
+# The Quantum Technology Map is one generated, byte-reproducible document that is
+# cited by DOI: its bytes must be the same on every machine and must equal the
+# artifact in qraveh/qt-map's dist/. This repo has core.autocrlf=true, which would
+# hand a Windows checkout CRLF and a Linux one LF — same commit, two documents.
+# `-text` tells git never to touch it.
+static/publications/quantum-technology-map/index.html -text
