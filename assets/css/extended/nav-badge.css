@@ -1,0 +1,43 @@
+/* Status badge inside a nav item — currently the "beta" pill on QT Map.
+
+   Injected through the menu entry's `post` in hugo.yaml, which PaperMod prints
+   unescaped, so no header partial is forked for it.
+
+   The shape deliberately echoes two things that already exist: the beta chip
+   printed inside the Quantum Technology Map document itself (outlined pill,
+   uppercase, letter-spaced) and the site's own tag chips in branding.css
+   (outlined cobalt, never filled). Outlined and not filled on purpose — the
+   header band is a faint cobalt tint, and a solid pill there would pull more
+   attention than the nav item it qualifies. */
+
+.nav-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 0 5px;
+    border: 1px solid var(--primary-brand);
+    border-radius: 999px;
+    color: var(--primary-brand);
+    /* Absolute size, not em: the badge must not grow with the nav item's own
+       font-size, or it stops reading as a subscript qualifier. */
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* Lifts the pill off the text baseline so it sits with the cap height
+       rather than hanging below it. */
+    vertical-align: 2px;
+}
+
+:root[data-theme="dark"] .nav-badge {
+    border-color: var(--primary-brand-soft);
+    color: var(--primary-brand-soft);
+}
+
+/* On the active page PaperMod underlines the nav label; the badge is a
+   qualifier, not part of the label, so it keeps clear of that rule. */
+#menu .active .nav-badge,
+#menu a:hover .nav-badge {
+    text-decoration: none;
+}

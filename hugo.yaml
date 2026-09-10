@@ -120,7 +120,12 @@ markup:
 menu:
   main:
     - identifier: qtmap
-      name: QT Map *beta
+      name: QT Map
+      # PaperMod renders a menu entry's `post` unescaped (Hugo types it
+      # template.HTML), which is the theme's own hook for a badge — no header
+      # override and no ::after hack. Styled in css/extended/nav-badge.css.
+      # The tooltip stays "QT Map": the title attribute uses .Name, not .Post.
+      post: '<span class="nav-badge">beta</span>'
       url: /publications/quantum-technology-map/
       weight: 2
     - identifier: monitor
