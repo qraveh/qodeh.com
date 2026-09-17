@@ -15,8 +15,8 @@ Re-run per edition, changing the eyebrow, then drop the result in
 assets/images/ — layouts/partials/templates/opengraph.html reads its real
 width and height from there, so the meta tags follow the file.
 
-Rendered at 3x and downsampled: Pillow places glyphs on whole pixels, and at 1x
-the letter-spaced eyebrow goes ragged.
+Delivered at 2x the logical 1200x627 grid and supersampled 2x on top of that —
+see the OUT/SS comment below.
 
     python make_og.py [out.png]
 """
@@ -26,7 +26,17 @@ from PIL import Image, ImageDraw, ImageFont
 
 HERE = Path(__file__).parent
 
-W, H, S = 1200, 627, 3
+# Logical design grid is 1200x627 — the Open Graph aspect ratio, and every
+# coordinate below is written in it. OUT then multiplies the delivered pixels.
+#
+# OUT = 2 (2400x1254) because 1200 is a *minimum*, not a target: link inspectors
+# and HiDPI feeds render the card wider than 1200 CSS px and upscale a 1200px
+# file, which turns the title soft. Consumers downscale on their own and never
+# complain about extra pixels. SS is the supersample on top of that: Pillow puts
+# glyphs on whole pixels, so the letter-spaced eyebrow needs the headroom.
+W, H = 1200, 627
+OUT, SS = 2, 2
+S = OUT * SS
 NAVY, RAIL_C, HAIR = "#13203c", "#0d172f", "#1b2a4a"
 WHITE, SUB, MUTED, GOLD, RULE = "#ffffff", "#d9e4f5", "#8fa8ce", "#c8951f", "#24345a"
 FD = r"C:\Windows\Fonts"
@@ -79,5 +89,5 @@ d.text(((RAIL_X + (W - RAIL_X - d.textlength("2026", font=y2) / S) / 2) * S, 540
 out = sys.argv[1] if len(sys.argv) > 1 else str(
     HERE.parent.parent / "assets" / "images" /
     "superconductor-electronics-monitor-2026-social.png")
-im.resize((W, H), Image.LANCZOS).save(out, optimize=True)
-print("wrote", out)
+im.resize((W * OUT, H * OUT), Image.LANCZOS).save(out, optimize=True)
+print(f"wrote {out}  {W*OUT}x{H*OUT}")
