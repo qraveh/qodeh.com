@@ -5,6 +5,18 @@ date: 2026-09-06
 summary: "Superconductor electronics holds the outright digital speed record and switches roughly 1,000× below CMOS. The 2026 Monitor consolidates the field's scattered technical, ecosystem and funding facts into one tiered picture — a family taxonomy, subsystem readiness, a fab × technology matrix with fourteen fab profiles, and market scenarios to 2035."
 author: "Raveh Neeman"
 showToc: false
+# Social card. PaperMod reads cover.image for BOTH og:image and twitter:image,
+# so setting it here replaces the site-wide /logo-social.png fallback with the
+# publication's own card and emits each property exactly once.
+# hidden: the card is for feeds, not a banner above the download line.
+# The file lives in assets/images/ and is published to this exact path by
+# layouts/partials/extend_head.html, which also reads its real width and height
+# — so og:image:width/height can never drift from the file.
+cover:
+  image: "/images/superconductor-electronics-monitor-2026-social.png"
+  alt: "Superconductor Electronics Monitor 2026"
+  relative: false
+  hidden: true
 # The slug moved with the v1.1 rename. Hugo emits a redirect stub at the old
 # path, which was live from 9 Aug 2026 and is indexed by Google and Bing.
 aliases: ["/publications/sfq-technology-monitor-2026/"]

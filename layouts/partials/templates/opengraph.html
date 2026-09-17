@@ -1,0 +1,116 @@
+{{- /* FORK of themes/PaperMod/layouts/partials/templates/opengraph.html.
+
+  Verbatim apart from one block in the cover branch, marked SITE ADDITION, which
+  adds og:image:width / :height / :alt.
+
+  Why a fork and not extend_head.html: Open Graph structured properties attach to
+  the most recently seen parent, so og:image:width before any og:image is dangling
+  and a parser drops it. extend_head runs at head.html:186 and this partial at :191
+  — there is no hook in between, and emitting our own og:image earlier would leave
+  two of them on the page, which is a crawler ambiguity rather than a reinforcement.
+  Facebook and WhatsApp are the parsers that actually read the dimensions, and
+  WhatsApp is this site's real distribution channel, so the order is load-bearing.
+
+  The dimensions are read off the file rather than typed into front matter: the card
+  is regenerated every edition and a hardcoded 1200x627 would go stale in silence.
+  That is why the image lives in assets/images/ — only a Hugo resource knows its own
+  size — while .Publish puts it at the /images/ path the front matter, the shared
+  links and the meta tag all name.
+
+  On a theme update: re-diff this file against the theme's and re-apply the block.
+*/ -}}
+<meta property="og:url" content="{{ .Permalink }}">
+
+{{- with or site.Title site.Params.title | plainify }}
+  <meta property="og:site_name" content="{{ . }}">
+{{- end }}
+
+{{- with or .Title site.Title site.Params.title | plainify }}
+  <meta property="og:title" content="{{ . }}">
+{{- end }}
+
+{{- with or .Description .Summary site.Params.description | plainify | htmlUnescape }}
+  <meta property="og:description" content="{{ trim . "\n\r\t " }}">
+{{- end }}
+
+{{- with or .Params.locale site.Language.LanguageCode }}
+  <meta property="og:locale" content="{{ replace . `-` `_` }}">
+{{- end }}
+
+{{- if .IsPage }}
+  <meta property="og:type" content="article">
+  {{- with .Section }}
+    <meta property="article:section" content="{{ . }}">
+  {{- end }}
+  {{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+  {{- with .PublishDate }}
+    <meta property="article:published_time" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}>
+  {{- end }}
+  {{- with .Lastmod }}
+    <meta property="article:modified_time" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}>
+  {{- end }}
+  {{- range .GetTerms "tags" | first 6 }}
+    <meta property="article:tag" content="{{ .Page.Title | plainify }}">
+  {{- end }}
+{{- else }}
+  <meta property="og:type" content="website">
+{{- end }}
+
+{{- if .Params.cover.image -}}
+  {{- if (ne .Params.cover.relative true) }}
+    <meta property="og:image" content="{{ .Params.cover.image | absURL }}">
+  {{- else}}
+    <meta property="og:image" content="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}">
+  {{- end}}
+  {{- /* SITE ADDITION — see the file header. */ -}}
+  {{- with $img := resources.Get (printf "images/%s" (path.Base .Params.cover.image)) }}
+    {{- $img.Publish }}
+    <meta property="og:image:width" content="{{ $img.Width }}">
+    <meta property="og:image:height" content="{{ $img.Height }}">
+  {{- end }}
+  {{- with .Params.cover.alt }}
+    <meta property="og:image:alt" content="{{ . }}">
+  {{- end }}
+{{- else }}
+  {{- with partial "_funcs/get-page-images" . }}
+    {{- range . | first 6 }}
+      <meta property="og:image" content="{{ .Permalink }}">
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- with .Params.audio }}
+  {{- range . | first 6  }}
+    <meta property="og:audio" content="{{ . | absURL }}">
+  {{- end }}
+{{- end }}
+
+{{- with .Params.videos }}
+  {{- range . | first 6 }}
+    <meta property="og:video" content="{{ . | absURL }}">
+  {{- end }}
+{{- end }}
+
+{{- range .GetTerms "series" }}
+  {{- range .Pages | first 7 }}
+    {{- if ne $ . }}
+      <meta property="og:see_also" content="{{ .Permalink }}">
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- with site.Params.social }}
+  {{- if reflect.IsMap . }}
+    {{- with .facebook_app_id }}
+      <meta property="fb:app_id" content="{{ . }}">
+    {{- else }}
+      {{- with .facebook_admin }}
+        <meta property="fb:admins" content="{{ . }}">
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- with (.Param "social.fediverse_creator") }}
+  <meta name="fediverse:creator" content="{{ . }}">
+{{- end }}
