@@ -51,7 +51,7 @@ Download: **[PDF](/sfq-monitor/files/Superconductor-Electronics-Monitor-2026_v1.
 
 ## Cite as
 
-> Neeman, R., "Superconductor Electronics Monitor 2026," v1.1, Qodeh, 2026 · qodeh.com/sfq-monitor · doi:[10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)
+> Neeman, R., "Superconductor Electronics Monitor", Qodeh, 2026 · qodeh.com/sfq-monitor · doi:[10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)
 
 The all-versions DOI always resolves to the current edition; to pin this edition cite [10.5281/zenodo.22537315](https://doi.org/10.5281/zenodo.22537315).
 
