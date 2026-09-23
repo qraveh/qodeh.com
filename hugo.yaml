@@ -127,7 +127,9 @@ menu:
       # The tooltip stays "QT Map": the title attribute uses .Name, not .Post.
       post: '<span class="nav-badge">beta</span>'
       url: /publications/quantum-technology-map/
-      weight: 2
+      # Leftmost, SCE Monitor right of it — editor, 2026-09-24. This reverses the
+      # Monitor-first order of 2026-08-24.
+      weight: 1
     - identifier: monitor
       name: SCE Monitor
       # Points at the publication page, not at /sfq-monitor/: that one is a
@@ -137,7 +139,7 @@ menu:
       # and in the v1.0 Zenodo record, and it is reachable from this page's
       # "Monitor home" link.
       url: /publications/superconductor-electronics-monitor-2026/
-      weight: 1
+      weight: 2
     - identifier: lectures
       name: Lectures
       url: /lectures/
