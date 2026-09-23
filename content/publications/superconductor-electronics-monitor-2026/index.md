@@ -48,7 +48,7 @@ It also **corrects eight claims of v1.0**, itemised on the edition's page 32. Ev
 
 **Cite as**
 
-> Neeman, R., "Superconductor Electronics Monitor 2026," v1.1, Qodeh, 2026 · qodeh.com/sfq-monitor · doi:[10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)
+> Neeman, R., "Superconductor Electronics Monitor", Qodeh, 2026 · qodeh.com/sfq-monitor · doi:[10.5281/zenodo.21860767](https://doi.org/10.5281/zenodo.21860767)
 
 The all-versions DOI always resolves to the current edition; to pin this edition cite [10.5281/zenodo.22537315](https://doi.org/10.5281/zenodo.22537315). v1.0 remains citable at [10.5281/zenodo.21860768](https://doi.org/10.5281/zenodo.21860768).
 
