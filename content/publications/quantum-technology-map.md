@@ -1,9 +1,12 @@
 ---
-title: "Quantum Technology Map"
+title: "Quantum Technology Map — 2026.09 (beta)"
 subtitle: "Edition 2026.09 (beta)"
 date: 2026-09-05
-summary: "Every quantum-computing platform compared by the goal it serves: a technology graph of 96 self-contained technologies across ten stack layers, seven design coordinates and five edge types, with a brief on each technology and every figure traced to a dated source. Bilingual EN / RU."
+summary: "Every quantum-computing technology (96) and every quantum machine built, announced or planned (136): analysed and summarised, partitioned by seven invariant design attributes, compared and combined in dozens of ways — with a brief on every technology and a card on every machine. Bilingual EN/RU, CC BY 4.0."
 author: "Raveh Neeman"
+# Short address the QT-Map programme hands out (C2 handoff, 2026-09-23). It 404ed
+# until this line; the document itself only ever cites the long URL.
+aliases: ["/qt-map/"]
 # The publication IS a single self-contained 8.7 MB HTML document, built by
 # github.com/qraveh/qt-map and served verbatim from
 # static/publications/quantum-technology-map/index.html — its own colophon cites
