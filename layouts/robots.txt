@@ -1,0 +1,11 @@
+User-agent: *
+{{- if hugo.IsProduction | or (eq site.Params.env "production") }}
+Disallow:
+{{- else }}
+Disallow: /
+{{- end }}
+Sitemap: {{ "sitemap.xml" | absURL }}
+{{- /* The Quantum Technology Atlas is a static site of its own under /publications/, with its own
+  sitemap (every record page, with hreflang alternates) that Hugo's does not know about — build/DEPLOY.md §7
+  in qraveh/qt-map. Otherwise this is PaperMod's robots.txt unchanged. */}}
+Sitemap: {{ "publications/quantum-technology-atlas/sitemap.xml" | absURL }}

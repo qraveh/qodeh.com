@@ -67,6 +67,54 @@ jobs:
         run: |
           hugo --gc --minify --baseURL "https://qodeh.com/"
 
+      # ---- Quantum Technology Atlas ---------------------------------------------------------------
+      # A static site of its own (two main pages, language fragments, 762 record pages, ~55 MB) built by
+      # qraveh/qt-map. Its record pages are in git on neither side — committing them here would grow this
+      # repository by tens of MB per Atlas revision — so the deploy builds it from the pinned commit, stops
+      # unless the result hashes to the pin (the build is byte-reproducible on Linux/3.12; qt-map's CI
+      # proves it on every push), and assembles it under public/. Nothing reaches S3 if any of this fails.
+      # To update the Atlas: edit infra/atlas-pin.env (and media/, if the build's picture list changed).
+      - name: Atlas — read the pin
+        run: grep -E '^[A-Z0-9_]+=' infra/atlas-pin.env >> "$GITHUB_ENV"
+
+      - name: Atlas — checkout the pinned commit
+        uses: actions/checkout@v7
+        with:
+          repository: qraveh/qt-map
+          ref: ${{ env.ATLAS_SHA }}
+          path: _atlas
+
+      - name: Atlas — Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Atlas — build and check it against the pin
+        working-directory: _atlas
+        run: |
+          test -n "$ATLAS_SHA" && test -n "$ATLAS_MAIN" && test -n "$ATLAS_DIST_SHA256"
+          pip install -r requirements.txt
+          python build/build.py
+          echo "${ATLAS_DIST_SHA256}  dist/${ATLAS_MAIN}" | sha256sum -c -
+
+      - name: Atlas — assemble under public/
+        run: |
+          A="public/publications/quantum-technology-atlas"
+          mkdir -p "$A"
+          cp -a _atlas/dist/. "$A/"
+          rm -f "$A/media-files.txt"
+          # the pictures are this repository's (static/…/media/, already in public/ from the Hugo build);
+          # every one the pages show must be there — build/DEPLOY.md: the deploy fails on a missing file
+          missing=0
+          while read -r f; do
+            if [ -n "$f" ] && [ ! -f "$A/media/$f" ]; then echo "missing picture: $f"; missing=$((missing + 1)); fi
+          done < _atlas/dist/media-files.txt
+          if [ "$missing" -ne 0 ]; then echo "::error::$missing picture(s) missing from media/"; exit 1; fi
+          for f in index.html ru/index.html "$ATLAS_MAIN" "ru/$ATLAS_MAIN" lang/en.js lang/ru.js sitemap.xml; do
+            test -f "$A/$f" || { echo "::error::missing $f"; exit 1; }
+          done
+          echo "Atlas assembled: $(find "$A" -type f | wc -l) files, $(du -sh "$A" | cut -f1)"
+
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v6
         with:
@@ -75,7 +123,16 @@ jobs:
 
       - name: Sync to S3
         run: |
-          aws s3 sync ./public "s3://${{ vars.AWS_S3_BUCKET }}" --delete
+          B="s3://${{ vars.AWS_S3_BUCKET }}"
+          A="publications/quantum-technology-atlas"
+          # 1. the Hugo site; the Atlas prefix is left to passes 2 and 3, and is not deleted by this one
+          aws s3 sync ./public "$B" --delete --exclude "$A/*"
+          # 2. the Atlas, all but its pages and language fragments (pictures, styles, scripts, sitemap)
+          aws s3 sync "./public/$A" "$B/$A" --delete --exclude "*.html" --exclude "lang/*.js"
+          # 3. its pages and language fragments, revalidated on every visit: a page and its fragment must
+          #    match slot for slot, and beta revisions redeploy under the same names (build/DEPLOY.md §6)
+          aws s3 sync "./public/$A" "$B/$A" --delete --exclude "*" --include "*.html" --include "lang/*.js" \
+            --cache-control "no-cache"
 
       - name: Invalidate CloudFront
         run: |
