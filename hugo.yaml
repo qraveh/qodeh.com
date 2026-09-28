@@ -38,6 +38,9 @@ params:
   # Empty means nothing is emitted, so an unverified site stays clean.
   googleSiteVerification: ""
   bingSiteVerification: ""
+  # Pages kept out of lists (`build: list: never`) but meant to be found by search engines.
+  # layouts/sitemap.xml adds them to sitemap.xml by path.
+  sitemapUnlisted: ["/about"]
   # Social cards (Bluesky, Twitter, LinkedIn, …) force og:image to a wide
   # 1.91:1 ratio. logo.png is near-square (2432x2504) so a center-crop
   # chops off the "qodeh" wordmark. logo-social.png is a 1200x630

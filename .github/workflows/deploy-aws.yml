@@ -139,3 +139,10 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id "${{ vars.AWS_CF_DISTRIBUTION_ID }}" \
             --paths "/*"
+
+      # Bing learns of new and changed pages from IndexNow within days instead of waiting for its next
+      # crawl (Yandex, Seznam and Naver too; Google does not take part). Last, so every URL it names
+      # already serves the new version; a failure here is reported and does not fail the deploy.
+      - name: IndexNow — announce the live URLs
+        continue-on-error: true
+        run: python3 infra/indexnow.py public
