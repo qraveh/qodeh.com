@@ -1,4 +1,5 @@
-/* Status badge inside a nav item — currently the "beta" pill on QT Map.
+/* Status badge inside a nav item — the "beta" pill QT Map / QT Atlas wore until
+   the 2026.09 release (30 Sep 2026); unused now, kept for the next pre-release.
 
    Injected through the menu entry's `post` in hugo.yaml, which PaperMod prints
    unescaped, so no header partial is forked for it.

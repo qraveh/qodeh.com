@@ -110,7 +110,7 @@ jobs:
             if [ -n "$f" ] && [ ! -f "$A/media/$f" ]; then echo "missing picture: $f"; missing=$((missing + 1)); fi
           done < _atlas/dist/media-files.txt
           if [ "$missing" -ne 0 ]; then echo "::error::$missing picture(s) missing from media/"; exit 1; fi
-          for f in index.html ru/index.html "$ATLAS_MAIN" "ru/$ATLAS_MAIN" lang/en.js lang/ru.js sitemap.xml; do
+          for f in index.html ru/index.html he/index.html "$ATLAS_MAIN" "ru/$ATLAS_MAIN" "he/$ATLAS_MAIN" lang/en.js lang/ru.js lang/he.js sitemap.xml; do
             test -f "$A/$f" || { echo "::error::missing $f"; exit 1; }
           done
           echo "Atlas assembled: $(find "$A" -type f | wc -l) files, $(du -sh "$A" | cut -f1)"
