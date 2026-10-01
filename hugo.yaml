@@ -124,10 +124,13 @@ menu:
   main:
     - identifier: qtatlas
       name: QT Atlas
-      # Was "QT Map" until the rename of 28 Sep 2026. Its "beta" pill came off
-      # with the 2026.09 release (30 Sep 2026); to put a status pill back, add
-      # post: '<span class="nav-badge">beta</span>' — PaperMod renders a menu
-      # entry's `post` unescaped, styled in css/extended/nav-badge.css.
+      # Was "QT Map" until the rename of 28 Sep 2026; its "beta" pill came off
+      # with the 2026.09 release (30 Sep 2026). The "New" pill is on from
+      # 1 Oct 2026, the day the Atlas was announced; delete `post` to take it
+      # off, or make it '<span class="nav-badge">beta</span>' for a status pill.
+      # PaperMod renders `post` unescaped; the pills, and why the "New" one has
+      # a space before it, are in css/extended/nav-badge.css.
+      post: ' <span class="nav-badge nav-badge--new">New</span>'
       url: /publications/quantum-technology-atlas/
       # Leftmost, SCE Monitor right of it — editor, 2026-09-24. This reverses the
       # Monitor-first order of 2026-08-24.

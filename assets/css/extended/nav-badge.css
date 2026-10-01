@@ -1,12 +1,17 @@
-/* Status badge inside a nav item — the "beta" pill QT Map / QT Atlas wore until
-   the 2026.09 release (30 Sep 2026); unused now, kept for the next pre-release.
+/* Badges inside a nav item, of two kinds sharing one shape:
+
+   - .nav-badge alone — a status qualifier: the "beta" pill QT Map / QT Atlas
+     wore until the 2026.09 release (30 Sep 2026); unused now, kept for the
+     next pre-release;
+   - .nav-badge.nav-badge--new — the "New" pill QT Atlas wears from 1 Oct 2026,
+     the day the Atlas was announced; styled at the end of this file.
 
    Injected through the menu entry's `post` in hugo.yaml, which PaperMod prints
-   unescaped, so no header partial is forked for it.
+   unescaped, so no header partial is forked for them.
 
-   The shape deliberately echoes two things that already exist: the beta chip
-   printed inside the Quantum Technology Map document itself (outlined pill,
-   uppercase, letter-spaced) and the site's own tag chips in branding.css
+   The status pill deliberately echoes two things that already exist: the beta
+   chip printed inside the Quantum Technology Map document itself (outlined
+   pill, uppercase, letter-spaced) and the site's own tag chips in branding.css
    (outlined cobalt, never filled). Outlined and not filled on purpose — the
    header band is a faint cobalt tint, and a solid pill there would pull more
    attention than the nav item it qualifies. */
@@ -41,4 +46,53 @@
 #menu .active .nav-badge,
 #menu a:hover .nav-badge {
     text-decoration: none;
+}
+
+/* "New" — the announcement pill. Its job is the opposite of the status pill's:
+   that one qualifies its item and keeps quiet, this one is there to draw the
+   eye to it, so it is filled. The fill is the logo's own gradient — the waves
+   run azure at the crest, cobalt through the body, deep blue at the base — so
+   the pill reads as a piece of the brand rather than a sticker from elsewhere,
+   and it stays the same in the dark theme, as the logo does. White on it holds
+   at least 5:1 across the band the letters occupy (7.2:1 on #0B43E4). */
+.nav-badge--new {
+    /* hugo.yaml puts a real space before this pill, so a screen reader names
+       the link "QT Atlas New", not "QT AtlasNew" (an inline-block is no word
+       boundary); the space plus 2px make the status pill's 6px gap. */
+    margin-left: 2px;
+    padding: 0 6px;
+    /* Transparent, not removed: forced-colors (high-contrast) mode drops the
+       gradient and paints this border, so the pill keeps its outline there. */
+    border-color: transparent;
+    color: #fff;
+    font-weight: 700;
+    /* Two layers: a glint, parked off the pill's left edge until it runs, over
+       the logo gradient. Both are laid from the border box, or the 1px border
+       ring would repeat the gradient's far edge as a hairline. */
+    background:
+        linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.55) 50%, transparent 65%)
+            120% 0 / 250% 100% no-repeat border-box,
+        linear-gradient(180deg, #3D8BFF 0%, #0B43E4 58%, #0832C4 100%) border-box;
+    box-shadow: 0 1px 2px rgba(8, 40, 170, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    /* Three glints five seconds apart, then the pill rests: enough to be seen on
+       arrival, not a metronome beside the reading. Each page load runs it anew. */
+    animation: nav-badge-glint 5s ease-in-out 1s 3;
+}
+
+/* The status pill's dark rule above outranks a bare class; the "New" pill
+   keeps its own colors in both themes. */
+:root[data-theme="dark"] .nav-badge--new {
+    border-color: transparent;
+    color: #fff;
+}
+
+@keyframes nav-badge-glint {
+    0% { background-position: 120% 0, 0 0; }
+    24%, 100% { background-position: -20% 0, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-badge--new {
+        animation: none;
+    }
 }
