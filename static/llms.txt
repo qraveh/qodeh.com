@@ -1,0 +1,20 @@
+# qodeh.com
+
+> Raveh Neeman's site: quantum-computing research publications — the Quantum Technology Atlas and the Superconductor Electronics Monitor — plus lectures and projects. All content CC BY 4.0 unless stated otherwise.
+
+## Publications
+
+- [Quantum Technology Atlas](https://qodeh.com/publications/quantum-technology-atlas/): every quantum-computing technology (111) and every quantum machine built, announced or planned (182), compared on seven design attributes, with a brief on every technology and a card on every machine. English edition; also in [Russian](https://qodeh.com/publications/quantum-technology-atlas/ru/) and [Hebrew](https://qodeh.com/publications/quantum-technology-atlas/he/). Edition 2026.09, DOI 10.5281/zenodo.22674814 (all editions). Record pages: https://qodeh.com/publications/quantum-technology-atlas/sitemap.xml
+- [Superconductor Electronics Monitor 2026](https://qodeh.com/publications/superconductor-electronics-monitor-2026/): an annual, tiered assessment of superconductor electronics — technologies, fabs, markets to 2035. DOI 10.5281/zenodo.21860767 (all versions). Files: https://qodeh.com/sfq-monitor/
+- [I Shipped a Production Go Project Without Knowing Go](https://qodeh.com/publications/shipped-go-without-knowing-go/): a case study in AI-assisted software development.
+
+## Projects and lectures
+
+- [Projects](https://qodeh.com/projects/)
+- [Lectures](https://qodeh.com/lectures/)
+- [About the author](https://qodeh.com/about/)
+
+## Optional
+
+- Sitemap of the site: https://qodeh.com/sitemap.xml
+- Source and data of the Atlas: https://github.com/qraveh/qt-map
