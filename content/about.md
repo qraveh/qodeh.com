@@ -2,6 +2,8 @@
 title: "About"
 layout: "single"
 url: "/about/"
+# Search engines show this line (at most 160 characters); the summary below stays for the list cards.
+description: "Raveh Neeman, quantum computing researcher based in Israel: author of the Quantum Technology Atlas and the Superconductor Electronics Monitor 2026."
 summary: "About Raveh Neeman"
 build:
   list: never        # don't appear in RSS or other "recent content" lists

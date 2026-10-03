@@ -2,6 +2,8 @@
 title: "I Shipped a Production Go Project Without Knowing Go"
 subtitle: "A Case Study in AI-Assisted Software Development"
 date: 2026-05-07
+# Search engines show this line (at most 160 characters); the summary below stays for the list cards.
+description: "A case study: a production Windows Go service — installer, telemetry, SQL backend — built in about six weeks with AI assistance, without writing Go by hand."
 summary: "A case study of building SelectiveMirror — a real-sized Windows Go service with installer, telemetry, SQL backend, and ISO-aligned engineering — in about six weeks, while contributing zero lines of Go. What changed: the human role."
 tags: ["selective-mirror", "ai-assisted-development", "software-engineering", "case-study", "go"]
 author: "Raveh Neeman"

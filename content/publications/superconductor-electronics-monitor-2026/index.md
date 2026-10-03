@@ -2,6 +2,8 @@
 title: "Superconductor Electronics Monitor 2026"
 subtitle: "An annual, tiered assessment of superconductor electronics"
 date: 2026-09-06
+# Search engines show this line (at most 160 characters); the summary below stays for the list cards.
+description: "Superconductor electronics holds the digital speed record and switches ~1,000× below CMOS: a tiered 2026 assessment of technologies, fabs and markets to 2035."
 summary: "Superconductor electronics holds the outright digital speed record and switches roughly 1,000× below CMOS. The 2026 Monitor consolidates the field's scattered technical, ecosystem and funding facts into one tiered picture — a family taxonomy, subsystem readiness, a fab × technology matrix with fourteen fab profiles, and market scenarios to 2035."
 author: "Raveh Neeman"
 showToc: false

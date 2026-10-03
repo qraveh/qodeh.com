@@ -2,6 +2,8 @@
 title: "Quantum Technology Atlas"
 date: 2026-09-30
 lastmod: 2026-10-02
+# Search engines show this line (at most 160 characters); the summary below stays for the list cards.
+description: "Every quantum-computing technology (111) and every quantum machine built, announced or planned (182), compared on seven design attributes — a brief on each."
 summary: "Every quantum-computing technology (111) and every quantum machine built, announced or planned (182): analysed, summarised and partitioned by seven stable design attributes, with a brief on every technology and a card on every machine. English / Русский / עברית; edition 2026.09 on Zenodo; CC BY 4.0."
 # First in the list: SelectiveMirror has weight 1 too, and the later date sorts first.
 weight: 1
