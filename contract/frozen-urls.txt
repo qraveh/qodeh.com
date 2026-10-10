@@ -1,0 +1,30 @@
+# Frozen URLs of qodeh.com — every path below must keep resolving, forever.
+# Cited by Zenodo records, the Atlas and Monitor colophons, CITATION.cff / .zenodo.json of qraveh/qt-map,
+# ~444 outreach letters, llms.txt and the Atlas build itself. Agreed with the editor 2026-10-10 (redesign Q9/Q29).
+# A path that ends in "/" must have an index.html. Lines tagged [atlas] exist only after the deploy assembles the
+# Atlas into public/ (the AWS workflow); a plain Hugo build skips them unless --with-atlas is given.
+# Other URLs may move only with a good reason and a redirect.
+
+/
+/about/
+/projects/
+/lectures/
+/publications/
+/llms.txt
+/sitemap.xml
+/robots.txt
+/images/og-image_quantum-technology-map.jpg
+/sfq-monitor/
+/sfq-monitor/files/SFQ-Technology-Monitor-2026_v1.0.pdf
+/sfq-monitor/files/Superconductor-Electronics-Monitor-2026_v1.1.pdf
+/sfq-monitor/files/Superconductor-Electronics-Monitor-2026_v1.1.pptx
+/publications/superconductor-electronics-monitor-2026/
+/publications/sfq-technology-monitor-2026/
+/qt-map/
+/publications/quantum-technology-map/
+/publications/quantum-technology-map/latest.html
+/publications/quantum-technology-map/Quantum-Technology-Map-2026.09.html
+[atlas] /publications/quantum-technology-atlas/
+[atlas] /publications/quantum-technology-atlas/ru/
+[atlas] /publications/quantum-technology-atlas/he/
+[atlas] /publications/quantum-technology-atlas/sitemap.xml

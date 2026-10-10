@@ -1,0 +1,3 @@
+# Pages that must carry the Google Scholar citation meta and a schema.org JSON-LD graph (layouts/partials/extend_head.html).
+# Each line: path, then the meta names that are required on it.
+/sfq-monitor/ citation_title citation_author citation_publication_date citation_pdf_url citation_doi
