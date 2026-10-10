@@ -14,7 +14,7 @@ I'm **Raveh Neeman**, a quantum computing researcher based in Israel.
 
 Nearly 30 years in chip architecture, design, verification and management, with 30+ tapeouts behind me.
 
-My mission is to build the most powerful quantum computer in the world.
+My mission is to architect the most powerful quantum computer in the world.
 
 This site collects my work — research, projects, and writing.
 
