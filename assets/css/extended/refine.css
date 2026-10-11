@@ -50,12 +50,16 @@ body { font-size: 19px; line-height: 1.6; }
 .logo a { font-weight: 600; font-size: 21px; letter-spacing: 0; }
 .logo a img { height: 36px; width: auto; }
 
-/* The menu in true small caps: a detail the face carries natively. */
+/* The menu in true small caps: a detail the face carries natively. STIX's drawn small caps are wider than
+   browser-scaled capitals (about 730 px for the seven entries at 17 px), so the header row is 1120 px instead of
+   PaperMod's 1024 to keep the menu on the logo's row from 1120 px windows up; narrower windows wrap it below. */
+:root { --nav-width: 1120px; }
 #menu a {
     font-variant-caps: all-small-caps;
     letter-spacing: 0.045em;
-    font-size: 19px;
+    font-size: 17px;
 }
+.menu li + li { margin-inline-start: 18px; }
 
 /* Meta lines and breadcrumbs: quieter, figures aligned. */
 .post-meta, .breadcrumbs, .entry-footer {
