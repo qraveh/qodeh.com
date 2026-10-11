@@ -22,19 +22,27 @@ input, button {
 
 /* STIX's Times-shaped x-height reads small at PaperMod's 18 px: a step up for text, the same measure. */
 body { font-size: 19px; line-height: 1.6; }
-.post-content, .entry-content, .home-info .entry-content { font-size: 20px; line-height: 1.6; }
+.post-content, .home-info .entry-content { font-size: 20px; line-height: 1.6; }
 .post-description { font-size: 20px; line-height: 1.5; }
+/* Card summaries stay a step below the card title. */
+.post-entry .entry-content { font-size: 17px; line-height: 1.55; }
 @media (max-width: 600px) {
     body { font-size: 18px; }
-    .post-content, .entry-content, .home-info .entry-content, .post-description { font-size: 18px; }
+    .post-content, .home-info .entry-content, .post-description { font-size: 18px; }
+    .post-entry .entry-content { font-size: 16px; }
 }
 
-/* Headings: semibold, balanced, a touch tighter. */
+/* The home lines, worded as they are: the mission line (the second) in ink, the others stay secondary. */
+.home-info .entry-content p:nth-child(2) { color: var(--primary); }
+.home-info .entry-content p { text-wrap: pretty; }
+
+/* Headings: semibold, a touch tighter. `pretty` keeps the natural break and only avoids a lone last word;
+   `balance` split compound names ("Superconductor / Electronics Monitor 2026"). */
 .post-title, .home-info h1, .first-entry h1, .entry-header h2,
 .post-content h1, .post-content h2, .post-content h3 {
     font-weight: 600;
     letter-spacing: -0.005em;
-    text-wrap: balance;
+    text-wrap: pretty;
 }
 .post-content h2 { margin-top: 1.9em; }
 
@@ -91,3 +99,4 @@ body { font-size: 19px; line-height: 1.6; }
     vertical-align: baseline;
 }
 :root[data-theme="dark"] .nav-badge.nav-badge--new { color: var(--primary-brand-soft); }
+
