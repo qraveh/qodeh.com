@@ -133,6 +133,23 @@ def gz(n_bytes):
     return len(gzip.compress(n_bytes, 9))
 
 
+def parse_ranges(spec):
+    """CSS unicode-range ("U+0000-00FF, U+0131, U+4??") -> [(lo, hi), ...]."""
+    out = []
+    for part in spec.split(","):
+        part = part.strip().upper().replace("U+", "")
+        if not part:
+            continue
+        if "?" in part:
+            out.append((int(part.replace("?", "0"), 16), int(part.replace("?", "F"), 16)))
+        elif "-" in part:
+            a, b = part.split("-", 1)
+            out.append((int(a, 16), int(b, 16)))
+        else:
+            out.append((int(part, 16), int(part, 16)))
+    return out
+
+
 def main():
     try:  # reports carry non-ASCII (→, formulas); a Windows console defaults to cp1252
         sys.stdout.reconfigure(encoding="utf-8")
@@ -225,21 +242,33 @@ def main():
             if ext in TEXT_EXT and (tag in ("script", "link")):
                 if target not in file_cache:
                     data = open(target, "rb").read()
-                    fonts = set()
+                    fonts = {}   # font file -> list of (lo, hi) code-point ranges, or None when always fetched
                     if ext == ".css":
-                        for m in re.finditer(rb"url\(\s*['\"]?([^'\")]+)['\"]?\s*\)", data):
-                            fu = m.group(1).decode("utf-8", "replace")
-                            fip = internal_path(fu, url_of(site, target))
-                            if fip:
-                                ft = resolve(site, fip[0])
-                                if ft and os.path.splitext(ft)[1].lower() in FONT_EXT:
-                                    fonts.add(ft)
+                        css = data.decode("utf-8", "replace")
+                        for m in re.finditer(r"url\(\s*['\"]?([^'\")]+)['\"]?\s*\)", css):
+                            fip = internal_path(m.group(1), url_of(site, target))
+                            ft = resolve(site, fip[0]) if fip else None
+                            if ft and os.path.splitext(ft)[1].lower() in FONT_EXT:
+                                start = css.rfind("@font-face", 0, m.start())
+                                end = css.find("}", m.start())
+                                block = css[start:end] if start >= 0 and css.rfind("}", start, m.start()) < 0 else ""
+                                rng = re.search(r"unicode-range\s*:\s*([^;}]+)", block)
+                                fonts.setdefault(ft, [])
+                                if rng and fonts[ft] is not None:
+                                    fonts[ft].extend(parse_ranges(rng.group(1)))
+                                else:
+                                    fonts[ft] = None
                     file_cache[target] = (gz(data), fonts)
                 size, fonts = file_cache[target]
                 weight += size
-                for ft in fonts - counted:
-                    counted.add(ft)
-                    weight += os.path.getsize(ft)
+                page_chars = {ord(ch) for ch in "".join(p.text)}
+                for ft, ranges in fonts.items():
+                    if ft in counted:
+                        continue
+                    # a browser fetches a unicode-range subset only when the page uses one of its characters
+                    if ranges is None or any(lo <= c <= hi for c in page_chars for lo, hi in ranges):
+                        counted.add(ft)
+                        weight += os.path.getsize(ft)
             elif ext in FONT_EXT:
                 weight += os.path.getsize(target)
             elif ext in IMG_EXT:

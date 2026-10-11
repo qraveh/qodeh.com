@@ -86,6 +86,17 @@ class CheckSite(unittest.TestCase):
         rc, out = self.run_check()
         self.assertIn("budget", self.rules(out))
 
+    def test_unicode_range_subsets_counted_only_when_used(self):
+        write(self.site, "css/site.css", "@font-face{font-family:t;src:url(/fonts/lat.woff2);unicode-range:U+0000-00FF}"
+                                         "@font-face{font-family:t;src:url(/fonts/cyr.woff2);unicode-range:U+0400-045F}")
+        write(self.site, "fonts/lat.woff2", b"\0" * 20000, binary=True)
+        write(self.site, "fonts/cyr.woff2", b"\0" * 200000, binary=True)
+        rc, out = self.run_check()
+        self.assertEqual(rc, 0, out)                       # Latin-only pages never fetch the 200 KB Cyrillic subset
+        write(self.site, "about/index.html", '<html><head><link rel="stylesheet" href="/css/site.css"></head><body><h1 id="me">Русский</h1></body></html>')
+        rc, out = self.run_check()
+        self.assertIn("budget", self.rules(out))           # a page that uses Cyrillic does
+
     def test_unrendered_tex(self):
         write(self.site, "about/index.html", '<html><body><h1 id="me">Me</h1><p>so e^{iφ} leaks</p></body></html>')
         rc, out = self.run_check()

@@ -54,8 +54,8 @@ params:
   # 2432-px logo.png (~3 MB) — the header only ever displays at 32 px tall.
   label:
     text: "Raveh Neeman"
-    icon: /logo-small.png
-    iconHeight: 32
+    icon: /logo-small.svg   # vector logo (redesign 2026-10-11); the PNGs stay for favicons and social cards
+    iconHeight: 36
   ShowReadingTime: true
   ShowShareButtons: false
   ShowPostNavLinks: true

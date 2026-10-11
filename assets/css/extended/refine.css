@@ -1,0 +1,93 @@
+/* Redesign phase 1 (2026-10-11): the current layout kept as the basis, refined in type and detail.
+   STIX Two Text (self-hosted, fonts.css) for text, headings and the menu; the vector logo in the header;
+   quieter chrome. Loaded after branding.css and nav-badge.css (PaperMod concatenates extended/*.css in name
+   order), so its rules win without !important except where PaperMod sets inline-level shorthands. */
+
+:root {
+    --font-text: "STIX Two Text", "Times New Roman", Times, serif;
+    --link-line: rgba(11, 67, 228, 0.38);
+}
+:root[data-theme="dark"] {
+    --link-line: rgba(123, 156, 255, 0.45);
+}
+
+/* One family for the whole page; code keeps PaperMod's monospace stack. */
+body,
+.post-title, .entry-header h2, .home-info h1, .first-entry h1,
+.post-content h1, .post-content h2, .post-content h3, .post-content h4,
+.logo a, #menu a, .post-meta, .breadcrumbs, .footer, .paginav, .toc,
+input, button {
+    font-family: var(--font-text);
+}
+
+/* STIX's Times-shaped x-height reads small at PaperMod's 18 px: a step up for text, the same measure. */
+body { font-size: 19px; line-height: 1.6; }
+.post-content, .entry-content, .home-info .entry-content { font-size: 20px; line-height: 1.6; }
+.post-description { font-size: 20px; line-height: 1.5; }
+@media (max-width: 600px) {
+    body { font-size: 18px; }
+    .post-content, .entry-content, .home-info .entry-content, .post-description { font-size: 18px; }
+}
+
+/* Headings: semibold, balanced, a touch tighter. */
+.post-title, .home-info h1, .first-entry h1, .entry-header h2,
+.post-content h1, .post-content h2, .post-content h3 {
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+}
+.post-content h2 { margin-top: 1.9em; }
+
+/* The masthead: full vector logo, the name set in the text face. */
+.logo a { font-weight: 600; font-size: 21px; letter-spacing: 0; }
+.logo a img { height: 36px; width: auto; }
+
+/* The menu in true small caps: a detail the face carries natively. */
+#menu a {
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.045em;
+    font-size: 19px;
+}
+
+/* Meta lines and breadcrumbs: quieter, figures aligned. */
+.post-meta, .breadcrumbs, .entry-footer {
+    font-size: 15px;
+    font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* Links: a fine underline in a light cobalt that firms up on hover; never a heavy bar. */
+.post-content a, .home-info a, .entry-content a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.17em;
+    text-decoration-color: var(--link-line);
+}
+.post-content a:hover, .home-info a:hover, .entry-content a:hover {
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: currentColor;
+}
+
+/* Tables: lining tabular figures so columns of numbers align. */
+.post-content table { font-variant-numeric: lining-nums tabular-nums; }
+
+/* "New" beside QT Atlas: a quiet small-caps word in cobalt, no gradient fill, no glint. The class names and
+   the hugo.yaml `post` hook stay as the Atlas flow expects. */
+.nav-badge.nav-badge--new,
+:root[data-theme="dark"] .nav-badge.nav-badge--new {
+    background: none;
+    box-shadow: none;
+    animation: none;
+    border: 0;
+    padding: 0;
+    margin-left: 4px;
+    color: var(--primary-brand);
+    font-family: var(--font-text);
+    font-size: 15px;
+    font-weight: 600;
+    font-variant-caps: all-small-caps;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    line-height: inherit;
+    vertical-align: baseline;
+}
+:root[data-theme="dark"] .nav-badge.nav-badge--new { color: var(--primary-brand-soft); }
