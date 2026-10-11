@@ -75,7 +75,7 @@ body { font-size: 19px; line-height: 1.6; }
     text-decoration-color: currentColor;
 }
 
-/* Tables: lining tabular figures so columns of numbers align. */
+/* Tables: lining tabular figures, STIX's default already; stated so a fallback face aligns columns too. */
 .post-content table { font-variant-numeric: lining-nums tabular-nums; }
 
 /* "New" beside QT Atlas: a quiet small-caps word in cobalt, no gradient fill, no glint. The class names and

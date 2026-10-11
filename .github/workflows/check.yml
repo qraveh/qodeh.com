@@ -43,6 +43,12 @@ jobs:
       - name: Checker tests
         run: python3 scripts/test_check_site.py
 
+      - name: Font subset tests (QS-003)
+        run: |
+          python3 -m venv "$RUNNER_TEMP/fontenv"
+          "$RUNNER_TEMP/fontenv/bin/pip" install --quiet "fonttools==4.62.1" "brotli==1.2.0"
+          "$RUNNER_TEMP/fontenv/bin/python" tools/fonts/test_fonts.py
+
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
