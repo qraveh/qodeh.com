@@ -8,7 +8,7 @@
     - Keeps the copyright span
     - Keeps optional site.Params.footer.text
     - Removes the "Powered by" span entirely
-    - Preserves the scroll-to-top button logic
+    - Preserves the scroll-to-top button logic (brought in line with the vendored theme, QS-001)
 */ -}}
 
 {{- if not (.Param "hideFooter") }}
@@ -31,7 +31,7 @@
 {{- end }}
 
 {{- if (not site.Params.disableScrollToTop) }}
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link hidden" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
@@ -76,14 +76,15 @@
 
 {{- if (not site.Params.disableScrollToTop) }}
 <script>
-    var mybutton = document.getElementById("top-link");
+    /* QS-001: the vendored PaperMod hides the button with the `hidden` class (footer.css), not on .top-link
+       itself as the older footer this file was copied from assumed; toggle the class as upstream does. */
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 </script>
