@@ -100,3 +100,22 @@ body { font-size: 19px; line-height: 1.6; }
 }
 :root[data-theme="dark"] .nav-badge.nav-badge--new { color: var(--primary-brand-soft); }
 
+/* QS-002: on phones the seven entries wrap into short rows under the logo line instead of scrolling out of
+   sight in one row; nothing hidden behind a tap, so it works without JS. */
+@media (max-width: 600px) {
+    .menu {
+        flex-wrap: wrap;
+        white-space: normal;
+        overflow-x: visible;
+        column-gap: 15px;
+        line-height: 2.1;
+        margin-block-end: 8px;
+    }
+    .menu li { white-space: nowrap; }
+    .menu li + li { margin-inline-start: 0; }
+    #menu a { font-size: 17px; }
+}
+@media (max-width: 360px) {
+    .menu { column-gap: 11px; }
+    #menu a { font-size: 16px; letter-spacing: 0.035em; }
+}
