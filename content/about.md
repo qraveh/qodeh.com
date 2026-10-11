@@ -22,7 +22,7 @@ This site brings together my work—research, projects, presentations, and writi
 
 [**Quantum Technology Atlas**](/publications/quantum-technology-atlas/) — a catalog of every quantum-computing technology and every quantum machine built, announced, or planned, with a brief description of each technology and a profile card for each machine.
 
-[**Superconductor Electronics Monitor 2026**](/publications/superconductor-electronics-monitor-2026/) — an annual, tiered assessment of superconductor electronics, covering 22 SCE technologies (mostly SFQ), the fabs that manufacture them, the economics of the industry, and technical details. SCE is an enabler of superconducting quantum computing and one of the plausible futures of HPC.
+[**Superconductor Electronics Monitor 2026**](/publications/superconductor-electronics-monitor-2026/) — an annual, tiered assessment of superconductor electronics, covering 22 SCE technology families (mostly SFQ), the fabs that manufacture them, the economics of the industry, and technical details. SCE is an enabler of superconducting quantum computing and one of the plausible futures of HPC.
 
 [**SelectiveMirror**](/projects/selective-mirror/) — a file-mirroring service comprising ~22,000 lines of Go, developed at the dawn of Claude and shipped in six weeks. The [case study](/publications/shipped-go-without-knowing-go/) examines the capabilities of autonomous AI programming in spring 2026—the most thorough account of what those capabilities meant in practice.
 
