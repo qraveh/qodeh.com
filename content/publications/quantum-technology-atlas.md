@@ -1,5 +1,5 @@
 ---
-title: "Quantum Technology Atlas — 2026.09"
+title: "Quantum Technology Atlas"
 date: 2026-09-30
 summary: "Every quantum-computing technology (111) and every quantum machine built, announced or planned (182): analysed and summarised, partitioned by seven stable design attributes, compared and combined in dozens of ways — with a brief on every technology and a card on every machine. English / Русский / עברית; CC BY 4.0."
 author: "Raveh Neeman"
