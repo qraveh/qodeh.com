@@ -1,12 +1,12 @@
-"""Tests for the self-hosted STIX Two Text subsets (QS-003). Run from the repo root: python tools/fonts/test_fonts.py
+"""Tests for STIX Two Text subsets made by build_stix.py (QS-003). Run: python tools/fonts/test_fonts.py DIR
 Needs fontTools and brotli. Checks what the browser relies on: the features, the coverage, the weight axis, the
 licence fields, and that fonts.css names exactly the files that ship."""
-import glob, os, re, unittest
+import glob, os, re, sys, unittest
 
 from fontTools.ttLib import TTFont
 
-DIR = os.path.join("static", "fonts", "stix-two-text")
-CSS = os.path.join("assets", "css", "extended", "fonts.css")
+DIR = sys.argv.pop(1) if len(sys.argv) > 1 else sys.exit("usage: test_fonts.py DIR (the build_stix.py --out directory)")
+CSS = os.path.join(DIR, "stix-two-text.css")
 # Small caps, figure styles and ligatures are kept in the latin subset only (build_stix.py); every subset keeps kern.
 LATIN = {"ccmp", "locl", "smcp", "c2sc", "onum", "pnum", "liga", "frac", "sups", "subs"}
 PROBES = {"latin": "AZaz09&", "latin-ext": "ŁŒ", "greek": "αβΩ", "cyrillic": "ЖжЯя"}
@@ -54,7 +54,7 @@ class StixSubsets(unittest.TestCase):
 
     def test_css_names_exactly_the_shipped_files(self):
         css = open(CSS, encoding="utf-8").read()
-        named = set(re.findall(r"/fonts/stix-two-text/([\w-]+\.woff2)", css))
+        named = set(re.findall(r"/([\w-]+\.woff2)\)", css))
         self.assertEqual(named, {os.path.basename(p) for p in self.files()})
         self.assertTrue(os.path.exists(os.path.join(DIR, "OFL.txt")))
 

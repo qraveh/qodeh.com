@@ -1,4 +1,8 @@
-"""Self-host STIX Two Text (SIL OFL 1.1): take the upstream release and subset it locally, keeping its features.
+"""STIX Two Text (SIL OFL 1.1) for formula-rich texts: take the upstream release and subset it locally, keeping its features.
+
+Parked 2026-10-11: the site itself uses PaperMod's system font stack (the editor's choice); STIX is set aside for
+formula-rich texts such as the Atlas. The tool therefore writes only to the directory it is given, never into
+the site. It was used on the site in redesign commits 0bd1fb3..ee70dbf (BugTracker QS-003).
 
 Source: stipub/stixfonts, tag v2.13b171, fonts/variable_ttf_woff2/ (one variable file per style, wght 400-700),
 pinned by SHA-256 below. Google Fonts' served subsets were used before and drop smcp/c2sc/onum/sups/subs/case,
@@ -7,8 +11,9 @@ is kept. The output keeps Google's four unicode-range splits, so a page fetches 
 those characters. The name table is kept whole, so the copyright and licence fields travel with each file,
 and OFL.txt ships beside the fonts.
 
-Usage: python tools/fonts/build_stix.py [--cache DIR]   (run from the repo root; needs fontTools and brotli)
-Writes static/fonts/stix-two-text/*.woff2 + OFL.txt and assets/css/extended/fonts.css; re-running replaces them.
+Usage: python tools/fonts/build_stix.py --out DIR [--url-prefix /fonts/stix-two-text/] [--cache DIR]
+Needs fontTools and brotli. Writes DIR/*.woff2, DIR/OFL.txt and DIR/stix-two-text.css (the @font-face rules,
+with src URLs under --url-prefix); re-running replaces them. Check the result: python tools/fonts/test_fonts.py DIR
 The upstream files are downloaded once into the cache directory (default: a temp folder) and verified there.
 """
 import argparse, hashlib, os, re, shutil, tempfile, urllib.request
@@ -40,8 +45,6 @@ SUBSETS = {
 # the other subsets they would add ~7 KB per file for Cyrillic/Greek small caps the site never sets.
 BASE_FEATURES = ["ccmp", "locl", "liga", "kern", "mark", "mkmk"]
 LATIN_FEATURES = BASE_FEATURES + ["frac", "numr", "dnom", "smcp", "c2sc", "onum", "pnum", "sups", "subs", "case"]
-OUT_DIR = os.path.join("static", "fonts", "stix-two-text")
-CSS_OUT = os.path.join("assets", "css", "extended", "fonts.css")
 
 
 def parse_ranges(spec):
@@ -66,8 +69,12 @@ def fetch(rel, sha, cache):
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--out", required=True, help="output directory for the subsets, OFL.txt and stix-two-text.css")
+    ap.add_argument("--url-prefix", default="/fonts/stix-two-text/", help="URL path the fonts will be served from")
     ap.add_argument("--cache", default=os.path.join(tempfile.gettempdir(), f"stix-src-{TAG}"))
-    cache = ap.parse_args().cache
+    args = ap.parse_args()
+    cache, OUT_DIR, prefix = args.cache, args.out, args.url_prefix.rstrip("/") + "/"
+    CSS_OUT = os.path.join(OUT_DIR, "stix-two-text.css")
     os.makedirs(cache, exist_ok=True)
     os.makedirs(OUT_DIR, exist_ok=True)
     def options(name):
@@ -79,7 +86,7 @@ def main():
         opts.notdef_outline = True
         return opts
 
-    css = [f"/* STIX Two Text, SIL Open Font License 1.1 (stipub/stixfonts {TAG}; licence: /fonts/stix-two-text/OFL.txt), "
+    css = [f"/* STIX Two Text, SIL Open Font License 1.1 (stipub/stixfonts {TAG}; licence: {prefix}OFL.txt), "
            "subset locally by tools/fonts/build_stix.py with small caps and figure styles kept. */"]
     total = 0
     for style, (rel, sha) in SOURCES.items():
@@ -96,7 +103,7 @@ def main():
             total += size
             print(f"{size:7d}  {out}")
             css.append("@font-face{font-family:'STIX Two Text';font-style:%s;font-weight:400 700;font-display:swap;"
-                       "src:url(/fonts/stix-two-text/%s) format('woff2');unicode-range:%s}" % (style, out, spec))
+                       "src:url(%s%s) format('woff2');unicode-range:%s}" % (style, prefix, out, spec))
     shutil.copyfile(fetch(LICENSE[0], LICENSE[1], cache), os.path.join(OUT_DIR, "OFL.txt"))
     open(CSS_OUT, "w", encoding="utf-8", newline="\n").write("\n".join(css) + "\n")
     print(f"{total} bytes in {len(SOURCES) * len(SUBSETS)} files; {len(css) - 1} @font-face rules -> {CSS_OUT}")
