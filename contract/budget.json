@@ -1,6 +1,8 @@
 {
-  "_note": "Agreed 2026-10-11 (redesign Q45): about 150 KB per page of HTML, CSS, JavaScript and fonts, excluding content images; text measured gzip-compressed (a proxy for the wire), fonts as stored. The Atlas application is a separate track (BugTracker QM-005) and is excluded.",
-  "page_kb": 150,
+  "_note": "Agreed 2026-10-11 (redesign Q45) at about 150 KB; raised to 200 KB by the editor the same day. Per page: HTML, CSS, JavaScript and fonts, excluding content images; text measured gzip-compressed (a proxy for the wire), fonts as stored. The Atlas application is a separate track (BugTracker QM-005) and is excluded.",
+  "page_kb": 200,
   "image_warn_kb": 500,
-  "exclude_prefixes": ["/publications/quantum-technology-atlas/"]
+  "exclude_prefixes": [
+    "/publications/quantum-technology-atlas/"
+  ]
 }
