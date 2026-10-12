@@ -1,0 +1,104 @@
+/* Site search (assets/js/qsearch.js): a dialog over the page from any page (/ or Ctrl+K, or the menu's Search), and the
+   same panel in place on /search/. PaperMod's colours, so it follows the light and dark themes. */
+
+.qs-dialog {
+    width: min(760px, calc(100vw - 32px));
+    max-height: min(82vh, 900px);
+    margin: 8vh auto auto;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--theme);
+    color: var(--primary);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+.qs-dialog[open] { display: flex; }
+.qs-dialog::backdrop { background: rgba(20, 30, 50, 0.32); }
+.qs-panel { display: flex; flex-direction: column; width: 100%; min-height: 0; }
+.qs-dialog .qs-panel { max-height: min(82vh, 900px); }
+
+.qs-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+.qs-icon {
+    flex: none; width: 18px; height: 18px; opacity: 0.6;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.2' y2='16.2'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.2' y2='16.2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.qs-q {
+    flex: 1; min-width: 0; border: 0; outline: 0; background: none; color: var(--primary);
+    font: inherit; font-size: 18px; padding: 4px 0;
+}
+.qs-q::-webkit-search-cancel-button { cursor: pointer; }
+.qs-close {
+    flex: none; border: 0; background: none; color: var(--secondary); font-size: 16px; line-height: 1;
+    padding: 6px 8px; border-radius: 6px; cursor: pointer;
+}
+.qs-close:hover, .qs-close:focus-visible { background: var(--tertiary); color: var(--primary); }
+
+.qs-opts {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px;
+    padding: 8px 14px; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--secondary);
+}
+.qs-o, .qs-lang {
+    font: inherit; font-size: 13px; color: var(--primary); background: var(--entry);
+    border: 1px solid var(--border); border-radius: 6px; padding: 3px 9px; cursor: pointer;
+}
+.qs-o[aria-pressed="true"] { border-color: var(--primary-brand); color: var(--primary-brand); }
+:root[data-theme="dark"] .qs-o[aria-pressed="true"] { border-color: var(--primary-brand-soft); color: var(--primary-brand-soft); }
+.qs-mode { font-variant-caps: all-small-caps; letter-spacing: 0.04em; }
+.qs-count { margin-left: auto; font-variant-numeric: tabular-nums; }
+
+.qs-res { overflow-y: auto; overscroll-behavior: contain; padding: 4px 0 8px; min-height: 0; flex: 1; }
+.qs-hint { margin: 14px; color: var(--secondary); font-size: 14px; line-height: 1.55; }
+.qs-g { padding: 6px 0 2px; }
+.qs-gh {
+    margin: 6px 14px 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--secondary);
+}
+.qs-gh span { font-weight: 400; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.qs-list { list-style: none; margin: 0; padding: 0; }
+.qs-hit {
+    display: grid; grid-template-columns: 1fr auto; gap: 1px 12px;
+    padding: 7px 14px; color: var(--primary); text-decoration: none; border-left: 2px solid transparent;
+}
+/* a result reads as a row, not a link: ink titles in both themes (branding.css colours every link), no hover underline */
+.qs-res a.qs-hit, :root[data-theme="dark"] .qs-res a.qs-hit { color: var(--primary); text-decoration: none; }
+.qs-hit:hover, .qs-hit[aria-selected="true"] { background: var(--entry); border-left-color: var(--primary-brand); }
+:root[data-theme="dark"] .qs-hit:hover, :root[data-theme="dark"] .qs-hit[aria-selected="true"] { border-left-color: var(--primary-brand-soft); }
+.qs-t { font-weight: 600; font-size: 15px; line-height: 1.35; }
+.qs-k { font-size: 12px; color: var(--secondary); white-space: nowrap; align-self: center; font-variant-numeric: tabular-nums; }
+.qs-s { grid-column: 1 / -1; font-size: 13.5px; line-height: 1.45; color: var(--secondary); overflow-wrap: anywhere; }
+.qs-res mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 2px; padding: 0 1px; }
+:root[data-theme="dark"] .qs-res mark { background: rgba(255, 196, 0, 0.30); }
+.qs-more {
+    margin: 2px 14px 6px; font: inherit; font-size: 13px; color: var(--primary-brand); background: none; border: 0;
+    padding: 2px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 0.2em;
+}
+:root[data-theme="dark"] .qs-more { color: var(--primary-brand-soft); }
+
+.qs-foot {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 8px 14px;
+    border-top: 1px solid var(--border); font-size: 12px; color: var(--secondary);
+}
+.qs-atlas {
+    margin-left: auto; font: inherit; font-size: 12.5px; color: var(--primary-brand); background: none; border: 0;
+    cursor: pointer; padding: 2px 0; max-width: 100%; text-align: right;
+}
+:root[data-theme="dark"] .qs-atlas { color: var(--primary-brand-soft); }
+.qs-atlas:hover { text-decoration: underline; }
+
+/* /search/: the panel in place, as tall as its results */
+.qs-page { margin-top: 18px; border: 1px solid var(--border); border-radius: 10px; background: var(--theme); }
+.qs-page .qs-res { overflow: visible; }
+
+@media (max-width: 600px) {
+    .qs-dialog { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border-radius: 0; border: 0; }
+    .qs-dialog .qs-panel { max-height: 100dvh; }
+    .qs-keys { display: none; }
+    .qs-atlas { margin-left: 0; text-align: left; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .qs-dialog[open] { animation: qs-in 120ms ease-out; }
+    @keyframes qs-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+}

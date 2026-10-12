@@ -1,0 +1,36 @@
+{{- /*
+  /search/ (layout "qsearch") — the site search in place, replacing PaperMod's Fuse.js page (layout "search", whose
+  head would still load Fuse.js). assets/js/qsearch.js mounts the panel into
+  #qs-page and keeps the query in the address (?q=…&cs=1&w=1&l=ru), so a search can be linked. Without JavaScript the
+  page lists every page of the site and the Atlas's record lists instead.
+*/ -}}
+{{- define "main" }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}
+    <div class="post-description">{{ . }}</div>
+    {{- end }}
+</header>
+
+<div id="qs-page" class="qs-page"></div>
+
+<noscript>
+    <div class="qs-nojs post-content">
+        <p>Search needs JavaScript. Every page of the site is listed here, and the Atlas has its own lists of records.</p>
+        <h2>The site</h2>
+        <ul>
+            {{- range where site.RegularPages "Layout" "ne" "qsearch" }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Section }} <span class="qs-nojs-k">· {{ . }}</span>{{ end }}</li>
+            {{- end }}
+        </ul>
+        <h2>The Quantum Technology Atlas</h2>
+        <ul>
+            <li><a href="/publications/quantum-technology-atlas/technology/index.html">Technologies</a></li>
+            <li><a href="/publications/quantum-technology-atlas/machine/index.html">Machines</a></li>
+            <li><a href="/publications/quantum-technology-atlas/organisation/index.html">Organisations</a></li>
+            <li><a href="/publications/quantum-technology-atlas/architecture/index.html">Architectures</a></li>
+            <li><a href="/publications/quantum-technology-atlas/">The Atlas</a>: its glossary is at the end of its About section</li>
+        </ul>
+    </div>
+</noscript>
+{{- end }}

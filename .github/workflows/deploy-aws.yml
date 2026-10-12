@@ -115,6 +115,19 @@ jobs:
           done
           echo "Atlas assembled: $(find "$A" -type f | wc -l) files, $(du -sh "$A" | cut -f1)"
 
+      # ---- Site search -------------------------------------------------------------------------------
+      # The search (assets/js/qsearch.js) covers the site's pages and the Atlas's records; its index is made
+      # here from the built output (the Hugo pages and the Atlas assembled above) plus the pinned Atlas's
+      # glossary (scripts/build_search_index.py; public/search/*.json). Its tests run first: a broken index
+      # or matcher stops the deploy instead of shipping a search that misleads.
+      - name: Search — tests
+        run: |
+          python3 scripts/test_build_search_index.py
+          node --test tests/qsearch_core.test.mjs
+
+      - name: Search — build the index
+        run: python3 scripts/build_search_index.py public --glossary _atlas/data
+
       - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v6
         with:
@@ -125,14 +138,17 @@ jobs:
         run: |
           B="s3://${{ vars.AWS_S3_BUCKET }}"
           A="publications/quantum-technology-atlas"
-          # 1. the Hugo site; the Atlas prefix is left to passes 2 and 3, and is not deleted by this one
-          aws s3 sync ./public "$B" --delete --exclude "$A/*"
+          # 1. the Hugo site; the Atlas prefix and the search are left to passes 2-4, and are not deleted by this one
+          aws s3 sync ./public "$B" --delete --exclude "$A/*" --exclude "search/*"
           # 2. the Atlas, all but its pages and language fragments (pictures, styles, scripts, sitemap)
           aws s3 sync "./public/$A" "$B/$A" --delete --exclude "*.html" --exclude "lang/*.js"
           # 3. its pages and language fragments, revalidated on every visit: a page and its fragment must
           #    match slot for slot, and beta revisions redeploy under the same names (build/DEPLOY.md §6)
           aws s3 sync "./public/$A" "$B/$A" --delete --exclude "*" --include "*.html" --include "lang/*.js" \
             --cache-control "no-cache"
+          # 4. the search page and its index, revalidated on every visit (a 304 when unchanged), so a search
+          #    never runs on the records of an Atlas that has since been redeployed
+          aws s3 sync ./public/search "$B/search" --delete --cache-control "no-cache"
 
       - name: Invalidate CloudFront
         run: |

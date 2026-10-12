@@ -91,15 +91,8 @@ params:
     - name: rss
       url: "/index.xml"
 
-  # Search
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+  # Search: assets/js/qsearch.js over search/*.json (scripts/build_search_index.py, run at deploy); the /search/ page
+  # has layout "qsearch" so that PaperMod's Fuse.js search (layout "search") is not loaded.
 
   assets:
     disableHLJS: true  # use Hugo's built-in syntax highlighting

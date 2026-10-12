@@ -1,0 +1,7 @@
+{{- /*
+  Site search on every page (assets/js/qsearch.js + qsearch/core.js, bundled by Hugo's esbuild): / or Ctrl+K opens
+  it, the menu's Search opens it in place of /search/. Deferred, so it never holds up the page; its index is fetched
+  at idle (scripts/build_search_index.py writes it at deploy).
+*/ -}}
+{{- $js := resources.Get "js/qsearch.js" | js.Build (dict "minify" true "target" "es2018" "format" "iife") | fingerprint }}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
