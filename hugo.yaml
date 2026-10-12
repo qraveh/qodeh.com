@@ -11,6 +11,11 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
+# the site search's script is bundled by js.Build (layouts/partials/extend_footer.html); its editor helper
+# assets/jsconfig.json is not wanted in the repository
+build:
+  noJSConfigInAssets: true
+
 minify:
   disableXML: true
   minifyOutput: true
