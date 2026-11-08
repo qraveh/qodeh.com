@@ -21,7 +21,7 @@ ShowReadingTime: false   # "reading time" doesn't apply to a lecture page
 </figure>
 
 **After the Shrink** — Semiconductors 2026 → 2036: the roadmap of the semiconductor
-industry. Delivered as an invited lecture at **Ready**, Petah-Tikva, on
+industry and the update on quantum computers. Delivered as an invited lecture at **Ready**, Petah-Tikva, on
 **21 October 2026**, in the event *Frontiers in electronics and quantum computing*.
 
 ## The slides
